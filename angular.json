@@ -24,8 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/less/imports.less",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/less/imports.less"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
