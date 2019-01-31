@@ -24,7 +24,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/less/imports.less"
+              "src/less/imports.less",
+              "node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
