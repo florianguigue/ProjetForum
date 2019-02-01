@@ -8,6 +8,9 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  public email: string;
+  public password: string;
+
   constructor(
     private router: Router
   ) { }
@@ -16,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-
+    alert(this.email);
   }
 
 }
