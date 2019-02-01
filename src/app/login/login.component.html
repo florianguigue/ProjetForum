@@ -1,14 +1,14 @@
-<div class="form-container">
-  <div class="login-form">
-    <h2>Connexion</h2>
-    <div class="inputWithIcon">
-      <input type="text" name="email" placeholder="Email" (ngModel)="email" >
-      <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+  <div class="row">
+    <div class="login-form">
+      <h2>Connexion</h2>
+      <div class="inputWithIcon">
+        <input class="form-control" type="email" name="email" placeholder="name@exemple.com" [(ngModel)]="email">
+        <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+      </div>
+      <div class="inputWithIcon">
+        <input class="form-control" type="password" name="password" placeholder="Mot de passe" [(ngModel)]="password">
+        <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+      </div>
+      <button type="submit" (click)="login()">Se connecter</button>
     </div>
-    <div class="inputWithIcon">
-      <input type="password" name="password" placeholder="Mot de passe" (ngModel)="password">
-      <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
-    </div>
-    <button type="submit" (click)="login()">Se connecter</button>
   </div>
-</div>
