@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    alert(this.email);
   }
 
 }
