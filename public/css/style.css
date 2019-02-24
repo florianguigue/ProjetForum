@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../assets/fonts/raleway/Raleway-Black.ttf);
+}
+
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../assets/fonts/raleway/Raleway-Black.ttf);
+}
+
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../assets/fonts/raleway/Raleway-Black.ttf);
+}
+
+.login-form-title {
+  font-family: Raleway-Black;
+  font-size: 30px;
+  color: #333;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
