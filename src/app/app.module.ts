@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StudentInfoComponent } from './student-info/student-info.component';
+import {SharedService} from './services/shared.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,9 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
