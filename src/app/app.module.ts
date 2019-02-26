@@ -12,7 +12,8 @@ import {SharedService} from './services/shared.service';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    StudentInfoComponent
   ],
   imports: [
     BrowserModule,
