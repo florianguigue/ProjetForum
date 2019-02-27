@@ -1,3 +1,18 @@
-<p>
-  student-info works!
-</p>
+<div class="row">
+  <div class="col-sm left">
+    <div class="jumbotron">
+      <h1 class="display-4">{{name}}</h1>
+      <p class="load">{{resume}}</p>
+      <hr class="my-4"/>
+      <div class="button">
+        <button>Télécharger le PDF</button>
+        <button>Ajouter à mes rendez-vous</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm right">
+    <div class="row">
+      <simple-pdf-viewer [src]="pdfSrc"></simple-pdf-viewer>
+    </div>
+  </div>
+</div>

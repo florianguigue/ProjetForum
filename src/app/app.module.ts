@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StudentInfoComponent } from './student-info/student-info.component';
 import {SharedService} from './services/shared.service';
+import {PdfViewerModule} from 'ng2-pdf-viewer';
+import {SimplePdfViewerModule} from 'simple-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {SharedService} from './services/shared.service';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SimplePdfViewerModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]
