@@ -1,5 +1,5 @@
 export enum AccountType {
   ADMIN = 1,
   COMPANY = 2,
-  STUDENT = 3,
+  APPLICANT = 3,
 }

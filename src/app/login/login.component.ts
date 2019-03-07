@@ -11,7 +11,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['../styles/login.css']
 })
 export class LoginComponent implements OnInit {
 
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
       case AccountType.COMPANY:
         this.router.navigate(['/companyInfo']);
         break;
-      case AccountType.STUDENT:
+      case AccountType.APPLICANT:
         this.router.navigate(['/studentInfo']);
     }
   }

@@ -25,7 +25,8 @@
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
-    "ng2-pdf-viewer": "^5.2.3",
+    "lodash": "^4.17.11",
+    "pdf-to-base64": "^1.0.2",
     "rxjs": "~6.2.0",
     "simple-pdf-viewer": "^2.0.3",
     "zone.js": "~0.8.26"
@@ -37,6 +38,7 @@
     "@angular/language-service": "^6.1.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/lodash": "^4.14.122",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.3.0",
     "gulp": "^4.0.0",

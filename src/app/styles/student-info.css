@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../../assets/fonts/raleway/Raleway-Black.ttf);
+}
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url(../../assets/fonts/raleway/Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../assets/fonts/raleway/Raleway-Regular.ttf);
+}
+.container-fluid {
+  background: url(../../assets/images/background.jpg) no-repeat center center fixed;
+}
+.left {
+  text-align: center;
+}
+.left .jumbotron {
+  background-color: transparent;
+}
+.left .jumbotron h1 {
+  font-family: Raleway-Bold;
+  padding-bottom: 15px;
+}
+.left .jumbotron p {
+  font-family: Raleway-Regular;
+  text-align: justify;
+}
+.left .jumbotron .button {
+  display: flex;
+}
+.left .jumbotron .button button {
+  border: none;
+  cursor: pointer;
+  font-family: Raleway-Bold;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  text-transform: uppercase;
+  width: 50%;
+  height: 62px;
+  border-radius: 3px;
+  background: dodgerblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  margin: 10px;
+}
+.left .jumbotron .button button i {
+  margin-right: 10px;
+}
+.left .jumbotron .button button:hover {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+.right {
+  height: 100vh;
+}
+/*# sourceMappingURL=student-info.css.map */
