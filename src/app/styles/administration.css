@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../../assets/fonts/raleway/Raleway-Black.ttf);
+}
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url(../../assets/fonts/raleway/Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../assets/fonts/raleway/Raleway-Regular.ttf);
+}
+@font-face {
+  font-family: "EurostileT-Bold";
+  src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
+}
+.administration-page {
+  background: url(../../assets/images/background-settings.jpeg) no-repeat center center fixed;
+}
+.administration-page .administration {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.administration-page .administration h2 {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
+}
+.administration-page .administration .search {
+  margin-bottom: 20px;
+}
+.administration-page .administration .settings {
+  box-shadow: 0 0 4px 0 #ababab;
+  background: linear-gradient(white, rgba(225, 225, 225, 0.9));
+  padding: 25px;
+}
+.administration-page .administration .settings label {
+  color: #009FDF;
+}
+.administration-page .administration .settings h2 {
+  margin-bottom: 50px;
+}
+.administration-page .administration .settings button[type=submit] {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: #009FDF;
+  border: none;
+}
+.administration-page .administration .settings button[type=submit].save {
+  margin-top: 30px;
+  background-color: #E87722;
+}
+.administration-page .administration .settings button[type=submit].plannify {
+  background-color: #009FDF;
+}
+.administration-page .administration .table-administration {
+  box-shadow: 0 0 4px 0 #ababab;
+  background: linear-gradient(#fbfbfb, #E1E1E1);
+  padding: 25px;
+}
+.administration-page .administration .table-administration h2 {
+  margin-bottom: 50px;
+}
+.administration-page .administration .table-administration table {
+  width: 100%;
+  text-align: center;
+}
+.administration-page .administration .table-administration table thead {
+  background-color: #009FDF;
+}
+.administration-page .administration .table-administration table thead th {
+  color: #fff;
+}
+.administration-page .administration .table-administration table td {
+  vertical-align: middle;
+}
+.administration-page .administration .table-administration table td.actions {
+  text-align: center;
+}
+.administration-page .administration .table-administration table td.actions .fas {
+  padding: 10px;
+  border-radius: 10%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.administration-page .administration .table-administration table td.actions .fas:before {
+  color: #fbfbfb;
+}
+.administration-page .administration .table-administration table td.actions .fas.fa-edit {
+  background-color: #E87722;
+}
+.administration-page .administration .table-administration table td.actions .fas.fa-trash {
+  background-color: #DC3545;
+}
+/*# sourceMappingURL=administration.css.map */

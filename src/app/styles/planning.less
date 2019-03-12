@@ -1,0 +1,158 @@
+@import "imports";
+
+.planning-page {
+
+  .banner {
+    background: url(../../assets/images/planning.jpeg) no-repeat center center fixed;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 300px;
+
+    h2 {
+      .h2-Polytech();
+      text-align: center;
+      width: 100%;
+      color: @white-grey;
+      text-shadow: @darker-grey 1px 0 10px;
+    }
+  }
+
+  .planning {
+    background: linear-gradient(@light-grey, @white-grey);
+    width: 100%;
+
+    .cards-wrapper {
+      @media @large {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cards {
+        margin-top: 200px;
+        padding: 25px;
+
+        .meeting {
+          position: relative;
+          margin-top: 15px;
+          margin-bottom: 15px;
+
+          @media @small {
+            margin-top: 45px;
+            margin-bottom: 45px;
+          }
+
+          .date {
+            align-items: center;
+            display: flex;
+
+            @media @large {
+              z-index: 1;
+              position: absolute;
+              margin-top: 30px;
+              left: -20px;
+              transform: translateX(-50%);
+              width: fit-content;
+            }
+
+            @media @small {
+              top: 0;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              margin-top: 0;
+            }
+
+            .hour {
+              z-index: 1;
+              display: flex;
+              align-items: center;
+              background: linear-gradient(to bottom, @light-grey, @white-grey);
+              .box-shadow(@dark-grey);
+              width: 70px;
+              height: 70px;
+              border-radius: 50%;
+              justify-content: center;
+
+            }
+
+            &::after {
+              content: '';
+              display: flex;
+              border-bottom: 1px solid @dark-grey;
+              width: 100%;
+              position: absolute;
+              min-height: 1px;
+
+              @media @large {
+                display: none;
+                width: fit-content;
+              }
+            }
+          }
+
+          .card {
+            padding: 15px;
+            display: flex;
+            .box-shadow(@dark-grey);
+
+
+            .portrait-wrapper {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              @media @small {
+                width: 100%;
+              }
+
+              .portrait {
+                object-fit: cover;
+                border-radius: 50%;
+                width: 100px;
+                height: 100px;
+                min-height: 0;
+                min-width: 0;
+              }
+            }
+
+            .info {
+              text-align: center;
+              display: flex;
+              align-items: center;
+              flex-direction: row;
+              justify-content: center;
+
+              @media @small {
+                width: 100%;
+                flex-direction: column;
+              }
+
+              p.name {
+                .h2-Polytech();
+                text-align: center;
+                justify-content: center;
+                display: flex;
+                margin-bottom: 0;
+              }
+
+              p.room {
+                text-align: center;
+                color: @input-text-color;
+              }
+            }
+
+            .link {
+              text-decoration: none;
+              color: @blue-polytech;
+
+              &:hover {
+                opacity: .6;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

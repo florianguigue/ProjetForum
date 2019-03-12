@@ -14,8 +14,9 @@
   font-family: "Raleway-Regular";
   src: url(../../assets/fonts/raleway/Raleway-Regular.ttf);
 }
-.container-fluid {
-  background: url(../../assets/images/background.jpg) no-repeat center center fixed;
+@font-face {
+  font-family: "EurostileT-Bold";
+  src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
 }
 .left {
   text-align: center;

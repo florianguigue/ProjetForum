@@ -1,0 +1,98 @@
+@import "imports";
+
+.administration-page {
+  background: url(../../assets/images/background-settings.jpeg) no-repeat center center fixed;
+
+  .administration {
+    padding-bottom: 50px;
+    padding-top: 50px;
+
+    h2 {
+      .h2-Polytech();
+    }
+
+    .search {
+      margin-bottom: 20px;
+    }
+
+    .settings {
+      .box-shadow(@dark-grey);
+      background: linear-gradient(white, @light-grey-9);
+      padding: 25px;
+
+      label {
+        color: @blue-polytech;
+      }
+
+      h2 {
+        margin-bottom: 50px;
+      }
+
+      button[type=submit] {
+        margin-left: 50%;
+        transform: translateX(-50%);
+        background-color: #009FDF;
+        border: none;
+
+        &.save {
+          margin-top: 30px;
+          background-color: @orange-polytech;
+        }
+
+        &.plannify {
+          background-color: @blue-polytech;
+        }
+      }
+    }
+
+    .table-administration {
+      .box-shadow(@dark-grey);
+      background: linear-gradient(@white-grey, @light-grey);
+      padding: 25px;
+
+      h2 {
+        margin-bottom: 50px;
+      }
+
+      table {
+        width: 100%;
+        text-align: center;
+
+        thead {
+          background-color: @blue-polytech;
+
+          th {
+            color: @white;
+          }
+        }
+
+        td {
+          vertical-align: middle;
+
+          &.actions {
+            text-align: center;
+
+            .fas {
+              padding: 10px;
+              border-radius: 10%;
+              margin-left: 10px;
+              margin-right: 10px;
+
+              &:before {
+                color: @white-grey;
+              }
+
+              &.fa-edit {
+                background-color: @orange-polytech;
+              }
+
+              &.fa-trash {
+                background-color: @red-danger;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

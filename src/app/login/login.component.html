@@ -1,33 +1,37 @@
-<div class="row">
-  <form class="login-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <h2>Connexion</h2>
-    <div class="inputWithIcon">
-      <input class="form-control"
-             type="email"
-             placeholder="Email"
-             formControlName="email"
-             [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
-             [(ngModel)]="email"
-             required>
-      <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
-      <div *ngIf="submitted && f.email.errors" class="invalid-tooltip">
-        <div *ngIf="f.email.errors.required"> Email requis</div>
-        <div *ngIf="f.email.errors.email"> Email valide requis</div>
-      </div>
+<div class="container-fluid login-page">
+  <div class="row">
+    <div class="login">
+      <form class="login-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h2>Connexion</h2>
+        <div class="inputWithIcon">
+          <input class="form-control"
+                 type="email"
+                 placeholder="Email"
+                 formControlName="email"
+                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                 [(ngModel)]="email"
+                 required>
+          <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+          <div *ngIf="submitted && f.email.errors" class="invalid-tooltip">
+            <div *ngIf="f.email.errors.required"> Email requis</div>
+            <div *ngIf="f.email.errors.email"> Email valide requis</div>
+          </div>
+        </div>
+        <div class="inputWithIcon">
+          <input class="form-control"
+                 type="password"
+                 placeholder="Mot de passe"
+                 formControlName="password"
+                 [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                 [(ngModel)]="password"
+                 required>
+          <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+          <div *ngIf="submitted && f.password.errors" class="invalid-tooltip">
+            <div *ngIf="f.password.errors.required"> Mot de passe requis</div>
+          </div>
+        </div>
+        <button type="submit">Se connecter</button>
+      </form>
     </div>
-    <div class="inputWithIcon">
-      <input class="form-control"
-             type="password"
-             placeholder="Mot de passe"
-             formControlName="password"
-             [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-             [(ngModel)]="password"
-             required>
-      <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
-      <div *ngIf="submitted && f.password.errors" class="invalid-tooltip">
-        <div *ngIf="f.password.errors.required"> Mot de passe requis</div>
-      </div>
-    </div>
-    <button type="submit">Se connecter</button>
-  </form>
+  </div>
 </div>

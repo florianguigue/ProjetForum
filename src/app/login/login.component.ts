@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    switch (this.sharedService.accountType) {
+    switch (this.sharedService.connectedUser.userType) {
       case AccountType.ADMIN:
         this.router.navigate(['/planningGlb']);
         break;

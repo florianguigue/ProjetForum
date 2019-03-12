@@ -9,14 +9,18 @@ import { StudentInfoComponent } from './student-info/student-info.component';
 import {SharedService} from './services/shared.service';
 import {SimplePdfViewerModule} from 'simple-pdf-viewer';
 import {UserService} from './services/user.service';
-import { NotFoundComponent } from './not-found/not-found.component';
+import {AdministrationComponent} from './administration/administration.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { PlanningComponent } from './planning/planning.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     StudentInfoComponent,
-    NotFoundComponent
+    AdministrationComponent,
+    NavigationComponent,
+    PlanningComponent
   ],
   imports: [
     BrowserModule,

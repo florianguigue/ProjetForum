@@ -1,0 +1,164 @@
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../../assets/fonts/raleway/Raleway-Black.ttf);
+}
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url(../../assets/fonts/raleway/Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../assets/fonts/raleway/Raleway-Regular.ttf);
+}
+@font-face {
+  font-family: "EurostileT-Bold";
+  src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
+}
+.planning-page .banner {
+  background: url(../../assets/images/planning.jpeg) no-repeat center center fixed;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 300px;
+}
+.planning-page .banner h2 {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  color: #fbfbfb;
+  text-shadow: #606060 1px 0 10px;
+}
+.planning-page .planning {
+  background: linear-gradient(#E1E1E1, #fbfbfb);
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  .planning-page .planning .cards-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.planning-page .planning .cards-wrapper .cards {
+  margin-top: 200px;
+  padding: 25px;
+}
+.planning-page .planning .cards-wrapper .cards .meeting {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 575.98px) {
+  .planning-page .planning .cards-wrapper .cards .meeting {
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+}
+.planning-page .planning .cards-wrapper .cards .meeting .date {
+  align-items: center;
+  display: flex;
+}
+@media (max-width: 991.98px) {
+  .planning-page .planning .cards-wrapper .cards .meeting .date {
+    z-index: 1;
+    position: absolute;
+    margin-top: 30px;
+    left: -20px;
+    transform: translateX(-50%);
+    width: fit-content;
+  }
+}
+@media (max-width: 575.98px) {
+  .planning-page .planning .cards-wrapper .cards .meeting .date {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+  }
+}
+.planning-page .planning .cards-wrapper .cards .meeting .date .hour {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom, #E1E1E1, #fbfbfb);
+  box-shadow: 0 0 4px 0 #ababab;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  justify-content: center;
+}
+.planning-page .planning .cards-wrapper .cards .meeting .date::after {
+  content: '';
+  display: flex;
+  border-bottom: 1px solid #ababab;
+  width: 100%;
+  position: absolute;
+  min-height: 1px;
+}
+@media (max-width: 991.98px) {
+  .planning-page .planning .cards-wrapper .cards .meeting .date::after {
+    display: none;
+    width: fit-content;
+  }
+}
+.planning-page .planning .cards-wrapper .cards .meeting .card {
+  padding: 15px;
+  display: flex;
+  box-shadow: 0 0 4px 0 #ababab;
+}
+.planning-page .planning .cards-wrapper .cards .meeting .card .portrait-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 575.98px) {
+  .planning-page .planning .cards-wrapper .cards .meeting .card .portrait-wrapper {
+    width: 100%;
+  }
+}
+.planning-page .planning .cards-wrapper .cards .meeting .card .portrait-wrapper .portrait {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  min-height: 0;
+  min-width: 0;
+}
+.planning-page .planning .cards-wrapper .cards .meeting .card .info {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+@media (max-width: 575.98px) {
+  .planning-page .planning .cards-wrapper .cards .meeting .card .info {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+.planning-page .planning .cards-wrapper .cards .meeting .card .info p.name {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 0;
+}
+.planning-page .planning .cards-wrapper .cards .meeting .card .info p.room {
+  text-align: center;
+  color: #686868;
+}
+.planning-page .planning .cards-wrapper .cards .meeting .card .link {
+  text-decoration: none;
+  color: #009FDF;
+}
+.planning-page .planning .cards-wrapper .cards .meeting .card .link:hover {
+  opacity: 0.6;
+}
+/*# sourceMappingURL=planning.css.map */

@@ -8,7 +8,7 @@ export class User {
   private _password: string;
   private _account: Account;
   private _userType: AccountType;
-  private _wishlist: Map<string, number>;
+  private _wishlist: Array<string>;
   private _displayName: string;
 
 
