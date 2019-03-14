@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../../assets/fonts/raleway/Raleway-Black.ttf);
+}
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url(../../assets/fonts/raleway/Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../assets/fonts/raleway/Raleway-Regular.ttf);
+}
+@font-face {
+  font-family: "EurostileT-Bold";
+  src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
+}
+p {
+  font-family: Raleway-Regular, sans-serif;
+}
+html {
+  min-width: 300px;
+}
+.users-page .banner {
+  background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
+  background-size: cover;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 300px;
+}
+.users-page .banner h2 {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  color: #fbfbfb;
+}
+.users-page .planning {
+  background-size: contain;
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  .users-page .planning .cards-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.users-page .planning .cards-wrapper .cards {
+  margin-top: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.users-page .planning .cards-wrapper .cards .meeting {
+  position: relative;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.users-page .planning .cards-wrapper .cards .meeting .card {
+  padding: 15px;
+  display: flex;
+  box-shadow: 0 0 4px 0 #ababab;
+}
+.users-page .planning .cards-wrapper .cards .meeting .card .portrait-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 991.98px) {
+  .users-page .planning .cards-wrapper .cards .meeting .card .portrait-wrapper {
+    width: 100%;
+  }
+}
+.users-page .planning .cards-wrapper .cards .meeting .card .portrait-wrapper .portrait {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  min-height: 0;
+  min-width: 0;
+}
+.users-page .planning .cards-wrapper .cards .meeting .card .info {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+@media (max-width: 767.98px) {
+  .users-page .planning .cards-wrapper .cards .meeting .card .info {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+.users-page .planning .cards-wrapper .cards .meeting .card .info p.name {
+  font-family: "Raleway-SemiBold";
+  font-size: 30px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 0;
+}
+.users-page .planning .cards-wrapper .cards .meeting .card .info p.description {
+  text-align: center;
+  color: #686868;
+  font-size: 0.9rem;
+}
+.users-page .planning .cards-wrapper .cards .meeting .card .more {
+  text-decoration: none;
+  color: #009FDF;
+}
+.users-page .planning .cards-wrapper .cards .meeting .card .more:hover {
+  opacity: 0.6;
+}
+/*# sourceMappingURL=user-list.css.map */

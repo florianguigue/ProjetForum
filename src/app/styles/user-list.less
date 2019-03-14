@@ -1,6 +1,6 @@
 @import "imports";
 
-.planning-page {
+.users-page {
 
   .banner {
     background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
@@ -31,74 +31,13 @@
 
       .cards {
         margin-top: 200px;
-        padding: 25px;
+        display: flex;
+        flex-wrap: wrap;
 
         .meeting {
           position: relative;
           margin-top: 15px;
           margin-bottom: 15px;
-
-          @media @small {
-            margin-top: 45px;
-            margin-bottom: 45px;
-          }
-
-          .date {
-            align-items: center;
-            display: flex;
-            position: relative;
-
-            @media @large {
-              z-index: 1;
-              position: absolute;
-              margin-top: 30px;
-              left: -20px;
-              transform: translateX(-50%);
-              width: fit-content;
-            }
-
-            @media @small {
-              top: 0;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              margin-top: 0;
-            }
-
-            .hour {
-              z-index: 1;
-              display: flex;
-              align-items: center;
-              background: linear-gradient(to bottom, @light-grey, @white-grey);
-              .box-shadow(@dark-grey);
-              width: 70px;
-              height: 70px;
-              font-size: 20px;
-              border-radius: 50%;
-              justify-content: center;
-
-              @media @large {
-                font-size: 2.5vw;
-              }
-
-              @media @small {
-                  font-size: 6vw;
-              }
-            }
-
-            &::after {
-              content: '';
-              display: flex;
-              border-bottom: 1px solid @dark-grey;
-              width: 100%;
-              position: absolute;
-              min-height: 1px;
-
-              @media @large {
-                display: none;
-                width: fit-content;
-              }
-            }
-          }
 
           .card {
             padding: 15px;
@@ -111,15 +50,15 @@
               align-items: center;
               justify-content: center;
 
-              @media @small {
+              @media @large {
                 width: 100%;
               }
 
               .portrait {
                 object-fit: cover;
                 border-radius: 50%;
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
                 min-height: 0;
                 min-width: 0;
               }
@@ -132,26 +71,28 @@
               flex-direction: row;
               justify-content: center;
 
-              @media @small {
+              @media @medium {
                 width: 100%;
                 flex-direction: column;
               }
 
               p.name {
-                .h2-Polytech();
+                .h3-Polytech();
+
                 text-align: center;
                 justify-content: center;
                 display: flex;
                 margin-bottom: 0;
               }
 
-              p.room {
+              p.description {
                 text-align: center;
                 color: @input-text-color;
+                font-size: .9rem;
               }
             }
 
-            .link {
+            .more {
               text-decoration: none;
               color: @blue-polytech;
 

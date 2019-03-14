@@ -2,26 +2,26 @@
 
 .login-page {
   background: url(../../assets/images/background.jpg) no-repeat center center fixed;
+  background-size: cover;
 
   .login {
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     align-items: center;
     align-content: center;
     height: 100vh;
-    width: 100%;
 
     .login-form {
-      width: 450px;
+      width: 100%;
       border-radius: 5px;
-      background: @white;
       overflow: hidden;
       padding: 20px;
 
       h2 {
-        font-family: Raleway-Black;
-        font-size: 30px;
-        color: @black;
+        .h2-Polytech();
+        color: @white;
         line-height: 1.2;
         text-transform: uppercase;
         text-align: center;
@@ -31,6 +31,7 @@
 
       .inputWithIcon {
         position: relative;
+        box-shadow: inset 0 0 4px 0 @darker-grey;
 
         input {
           border: none;
@@ -72,7 +73,7 @@
         width: 100%;
         height: 62px;
         border-radius: 3px;
-        background: dodgerblue;
+        background: @blue-polytech;
         display: flex;
         justify-content: center;
         align-items: center;

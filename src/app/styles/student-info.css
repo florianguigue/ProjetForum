@@ -18,6 +18,12 @@
   font-family: "EurostileT-Bold";
   src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
 }
+p {
+  font-family: Raleway-Regular, sans-serif;
+}
+html {
+  min-width: 300px;
+}
 .left {
   text-align: center;
 }

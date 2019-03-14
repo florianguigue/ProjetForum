@@ -1,0 +1,106 @@
+@import "imports";
+
+.planning-administration-page {
+
+  .banner {
+    background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
+    background-size: cover;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 300px;
+
+    h2 {
+      .h2-Polytech();
+      text-align: center;
+      width: 100%;
+      color: @white-grey;
+    }
+  }
+
+  .planning {
+    background-size: cover;
+    width: 100%;
+
+    .meetings {
+      overflow-y: scroll;
+      border-collapse: separate;
+      border-spacing: 0 1em;
+      position: relative;
+      margin-top: 200px;
+      padding: 25px;
+
+      thead {
+        th {
+          border-top: 1px solid rgba(0, 0, 0, .125);
+          border-bottom: 1px solid rgba(0, 0, 0, .125);
+          padding: 15px;
+          position: sticky;
+          position: -webkit-sticky;
+          top: 75px;
+          background: @blue-polytech;
+          color: white;
+          z-index: 10;
+          text-align: center;
+
+          &:first-child {
+            border: none;
+            background: transparent;
+          }
+
+          &:nth-child(2) {
+            border-top-left-radius: .25rem;
+            border-bottom-left-radius: .25rem;
+          }
+
+          &:last-child {
+            border-top-right-radius: .25rem;
+            border-bottom-right-radius: .25rem;
+          }
+        }
+      }
+
+      tbody {
+        overflow-y: scroll;
+
+        tr {
+          background: linear-gradient(to right bottom, @white-grey, @white);
+          border: 1px solid rgba(0, 0, 0, .125);
+
+          .logo-wrapper {
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-right: 0;
+            border-top-left-radius: .25rem;
+            border-bottom-left-radius: .25rem;
+          }
+
+          .portrait-wrapper:last-child {
+            border-right: 1px solid rgba(0, 0, 0, .125);
+            border-top-right-radius: .25rem;
+            border-bottom-right-radius: .25rem;
+          }
+
+          .portrait-wrapper {
+            border-top: 1px solid rgba(0, 0, 0, .125);
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
+          }
+
+          .logo-wrapper, .portrait-wrapper {
+            padding: 25px;
+            text-align: center;
+
+            .logo, .portrait {
+              object-fit: cover;
+              border-radius: 50%;
+              width: 70px;
+              height: 70px;
+              min-height: 0;
+              min-width: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

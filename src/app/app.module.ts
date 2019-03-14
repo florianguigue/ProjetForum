@@ -12,6 +12,8 @@ import {UserService} from './services/user.service';
 import {AdministrationComponent} from './administration/administration.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PlanningComponent } from './planning/planning.component';
+import { PlanningAdministrationComponent } from './planning-administration/planning-administration.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PlanningComponent } from './planning/planning.component';
     StudentInfoComponent,
     AdministrationComponent,
     NavigationComponent,
-    PlanningComponent
+    PlanningComponent,
+    PlanningAdministrationComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

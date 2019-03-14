@@ -11,13 +11,9 @@
       .h2-Polytech();
     }
 
-    .search {
-      margin-bottom: 20px;
-    }
-
     .settings {
       .box-shadow(@dark-grey);
-      background: linear-gradient(white, @light-grey-9);
+      background: linear-gradient(white, @white-grey);
       padding: 25px;
 
       label {
@@ -42,16 +38,54 @@
         &.plannify {
           background-color: @blue-polytech;
         }
+
+        .fas {
+          padding-right: 10px;
+        }
       }
     }
 
     .table-administration {
       .box-shadow(@dark-grey);
-      background: linear-gradient(@white-grey, @light-grey);
+      background: linear-gradient(white, @white-grey);
       padding: 25px;
 
       h2 {
         margin-bottom: 50px;
+      }
+
+      form.search-form {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+
+        .add {
+          display: flex;
+          align-items: center;
+          margin-left: auto;
+          justify-content: flex-end;
+
+          @media @large {
+            margin-top: 10px;
+            justify-content: center;
+          }
+
+          a {
+            color: @blue-polytech;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+
+          .fa-plus-circle {
+            font-size: 30px;
+            padding-right: 10px;
+            color: @blue-polytech;
+          }
+        }
+
       }
 
       table {

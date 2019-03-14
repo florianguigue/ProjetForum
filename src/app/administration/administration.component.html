@@ -4,7 +4,16 @@
       <div class="col-lg-7">
         <div class="table table-administration">
           <h2>Liste des utilisateurs</h2>
-          <form [formGroup]="searchForm"><input type="search" class="search form-control col-lg-6" placeholder="Rechercher"/></form>
+          <form [formGroup]="searchForm" class="search-form">
+            <div class="search col-lg-6">
+              <div class="row"><input type="search" class="form-control" placeholder="Rechercher"/></div>
+            </div>
+            <div class="add col-lg-6">
+              <a href="">
+                <div class="row"><i class="fas fa-plus-circle"></i>Ajouter un utilisateur</div>
+              </a>
+            </div>
+          </form>
           <table class="table-striped">
             <thead>
             <th>Nom</th>
@@ -282,9 +291,11 @@
                    placeholder="Ex: 14" aria-describedby="endHelp">
             <small id="endHelp" class="form-text text-muted">Heure de fin des entretiens
             </small>
-            <button type="submit" class="btn btn-primary save">Enregistrer</button>
+            <button type="submit" class="btn btn-primary save"><i class="fas fa-save"></i>Enregistrer</button>
             <hr>
-            <button type="submit" class="btn btn-primary plannify">Plannifier les entretiens</button>
+            <button type="submit" class="btn btn-primary plannify"><i class="fas fa-calendar-alt"></i>Plannifier les
+              entretiens
+            </button>
           </form>
         </div>
       </div>
