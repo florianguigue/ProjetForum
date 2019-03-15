@@ -18,6 +18,12 @@
   font-family: "EurostileT-Bold";
   src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
 }
+p {
+  font-family: Raleway-Regular, sans-serif;
+}
+html {
+  min-width: 300px;
+}
 .administration-page {
   background: url(../../assets/images/background-settings.jpeg) no-repeat center center fixed;
 }
@@ -29,12 +35,9 @@
   font-family: "EurostileT-Bold", sans-serif;
   font-size: 40px;
 }
-.administration-page .administration .search {
-  margin-bottom: 20px;
-}
 .administration-page .administration .settings {
   box-shadow: 0 0 4px 0 #ababab;
-  background: linear-gradient(white, rgba(225, 225, 225, 0.9));
+  background: linear-gradient(white, #fbfbfb);
   padding: 25px;
 }
 .administration-page .administration .settings label {
@@ -56,13 +59,45 @@
 .administration-page .administration .settings button[type=submit].plannify {
   background-color: #009FDF;
 }
+.administration-page .administration .settings button[type=submit] .fas {
+  padding-right: 10px;
+}
 .administration-page .administration .table-administration {
   box-shadow: 0 0 4px 0 #ababab;
-  background: linear-gradient(#fbfbfb, #E1E1E1);
+  background: linear-gradient(white, #fbfbfb);
   padding: 25px;
 }
 .administration-page .administration .table-administration h2 {
   margin-bottom: 50px;
+}
+.administration-page .administration .table-administration form.search-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.administration-page .administration .table-administration form.search-form .add {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  justify-content: flex-end;
+}
+@media (max-width: 991.98px) {
+  .administration-page .administration .table-administration form.search-form .add {
+    margin-top: 10px;
+    justify-content: center;
+  }
+}
+.administration-page .administration .table-administration form.search-form .add a {
+  color: #009FDF;
+}
+.administration-page .administration .table-administration form.search-form .add a:hover {
+  text-decoration: none;
+}
+.administration-page .administration .table-administration form.search-form .add .fa-plus-circle {
+  font-size: 30px;
+  padding-right: 10px;
+  color: #009FDF;
 }
 .administration-page .administration .table-administration table {
   width: 100%;

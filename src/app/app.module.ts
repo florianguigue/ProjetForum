@@ -14,6 +14,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { PlanningComponent } from './planning/planning.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { PlanningAdministrationComponent } from './planning-administration/planning-administration.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     AdministrationComponent,
     NavigationComponent,
     PlanningComponent,
-    WishlistComponent
+    WishlistComponent,
+    PlanningAdministrationComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

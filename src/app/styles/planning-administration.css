@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../../assets/fonts/raleway/Raleway-Black.ttf);
+}
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url(../../assets/fonts/raleway/Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../assets/fonts/raleway/Raleway-Regular.ttf);
+}
+@font-face {
+  font-family: "EurostileT-Bold";
+  src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
+}
+p {
+  font-family: Raleway-Regular, sans-serif;
+}
+html {
+  min-width: 300px;
+}
+.planning-administration-page .banner {
+  background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
+  background-size: cover;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 300px;
+}
+.planning-administration-page .banner h2 {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  color: #fbfbfb;
+}
+.planning-administration-page .planning {
+  background-size: cover;
+  width: 100%;
+}
+.planning-administration-page .planning .meetings {
+  overflow-y: scroll;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  position: relative;
+  margin-top: 200px;
+  padding: 25px;
+}
+.planning-administration-page .planning .meetings thead th {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 15px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 75px;
+  background: #009FDF;
+  color: white;
+  z-index: 10;
+  text-align: center;
+}
+.planning-administration-page .planning .meetings thead th:first-child {
+  border: none;
+  background: transparent;
+}
+.planning-administration-page .planning .meetings thead th:nth-child(2) {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.planning-administration-page .planning .meetings thead th:last-child {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.planning-administration-page .planning .meetings tbody {
+  overflow-y: scroll;
+}
+.planning-administration-page .planning .meetings tbody tr {
+  background: linear-gradient(to right bottom, #fbfbfb, #fff);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+.planning-administration-page .planning .meetings tbody tr .logo-wrapper {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-right: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.planning-administration-page .planning .meetings tbody tr .portrait-wrapper:last-child {
+  border-right: 1px solid rgba(0, 0, 0, 0.125);
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.planning-administration-page .planning .meetings tbody tr .portrait-wrapper {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.planning-administration-page .planning .meetings tbody tr .logo-wrapper,
+.planning-administration-page .planning .meetings tbody tr .portrait-wrapper {
+  padding: 25px;
+  text-align: center;
+}
+.planning-administration-page .planning .meetings tbody tr .logo-wrapper .logo,
+.planning-administration-page .planning .meetings tbody tr .portrait-wrapper .logo,
+.planning-administration-page .planning .meetings tbody tr .logo-wrapper .portrait,
+.planning-administration-page .planning .meetings tbody tr .portrait-wrapper .portrait {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  min-height: 0;
+  min-width: 0;
+}
+/*# sourceMappingURL=planning-administration.css.map */
