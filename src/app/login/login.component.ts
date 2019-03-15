@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {SharedService} from '../services/shared.service';
 import {AccountType} from '../enums/account-type.enum';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../services/user.service';
 
 
 /**
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private sharedService: SharedService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -49,6 +51,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+
+
     switch (this.sharedService.connectedUser.userType) {
       case AccountType.ADMIN:
         this.router.navigate(['/planningGlb']);

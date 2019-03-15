@@ -12,6 +12,8 @@ import {UserService} from './services/user.service';
 import {AdministrationComponent} from './administration/administration.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PlanningComponent } from './planning/planning.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,15 @@ import { PlanningComponent } from './planning/planning.component';
     StudentInfoComponent,
     AdministrationComponent,
     NavigationComponent,
-    PlanningComponent
+    PlanningComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    SimplePdfViewerModule
+    SimplePdfViewerModule,
+    DragDropModule
   ],
   providers: [SharedService, UserService],
   bootstrap: [AppComponent]

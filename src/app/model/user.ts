@@ -10,9 +10,10 @@ export class User {
   private _userType: AccountType;
   private _wishlist: Array<string>;
   private _displayName: string;
+  private _token: string;
 
 
-  constructor(id: string, email: string, account: Account, userType: string, wishlist: Array<string>) {
+  constructor(id: string, email: string, account: Account, userType: string, wishlist: Array<string>, token: string) {
     this.id = id;
     this._email = email;
     this._account = account;
@@ -21,6 +22,7 @@ export class User {
     }
 
     this._wishlist = wishlist;
+    this._token = token !== undefined ? token : null;
 
     switch (userType) {
       case 'Applicant':

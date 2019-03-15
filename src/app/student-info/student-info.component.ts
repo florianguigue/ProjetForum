@@ -27,7 +27,7 @@ export class StudentInfoComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUser(this.route.snapshot.paramMap.get('studentId')).subscribe((user) => {
-      this.student = new User(user._id, user.email, user.account, user.user_type, user.wishlist);
+      this.student = new User(user._id, user.email, user.account, user.user_type, user.wish_list, null);
       console.log(this.student);
     }, (error) => {
 
