@@ -10,6 +10,13 @@ import {User} from '../model/user';
 import {AccountType} from '../enums/account-type.enum';
 import * as _ from 'lodash';
 
+const NOTIF_PARAMS = {
+  timeOut: 6000,
+  showProgressBar: false,
+  pauseOnHover: true,
+  clickToClose: true
+};
+
 @Component({
   selector: 'app-administration',
   templateUrl: './administration.component.html',
@@ -45,7 +52,7 @@ export class AdministrationComponent implements OnInit {
         });
       }, () => {
         const userType = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'candidats' : 'enterprises';
-        this.notifications.error('Erreur lors de la récupération des ' + userType, '');
+        this.notifications.error('Erreur lors de la récupération des ' + userType, '', NOTIF_PARAMS);
       }
     );
     
@@ -93,9 +100,9 @@ export class AdministrationComponent implements OnInit {
         _.remove(this.users, (user) => {
           return user.id === id;
         });
-        this.notifications.success('Utilisateur supprimé avec succès', '');
+        this.notifications.success('Utilisateur supprimé avec succès', '', NOTIF_PARAMS);
       }, () => {
-        this.notifications.error('Erreur lors de la suppression de l\'utilisateur', '');
+        this.notifications.error('Erreur lors de la suppression de l\'utilisateur', '', NOTIF_PARAMS);
       }
     );
   }

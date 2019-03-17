@@ -9,6 +9,13 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {StudentInfoComponent} from '../student-info/student-info.component';
 
+const NOTIF_PARAMS = {
+  timeOut: 6000,
+  showProgressBar: false,
+  pauseOnHover: true,
+  clickToClose: true
+};
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -39,7 +46,7 @@ export class UserListComponent implements OnInit {
         }
       }, () => {
         const userType = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'candidats' : 'enterprises';
-        this.notifications.error('Erreur lors de la récupération des ' + userType, '');
+        this.notifications.error('Erreur lors de la récupération des ' + userType, '', NOTIF_PARAMS);
       }
     );
   }
@@ -52,19 +59,34 @@ export class UserListComponent implements OnInit {
   }
 
   addToWishlist(user: User) {
-    const newWIsh = {
-      'id': user.id,
-      'name': user.displayName,
-      'position': this.sharedService.connectedUser.wishlist.length + 1
-    };
-    this.sharedService.connectedUser.wishlist.push(newWIsh);
-    this.userService.updateUser(this.sharedService.connectedUser.id, { 'wish_list' : this.sharedService.connectedUser.wishlist}).subscribe(
-      () => {
-        this.notifications.success(user.displayName + ' a été ajouté à la wishlist', '');
-      }, () => {
-        this.notifications.error('Erreur lors de l\'ajout à la wishlist', '');
+    const connectedUser = this.sharedService.connectedUser;
+    let alreadyAdded = false;
+
+    connectedUser.wishlist.forEach((wish) => {
+      if (wish.id === user.id) {
+        alreadyAdded = true;
       }
-    );
+    });
+
+    if (!alreadyAdded) {
+      const studentWish = {
+        'id': user.id,
+        'name': user.displayName,
+        'position': this.sharedService.connectedUser.wishlist.length + 1
+      };
+      connectedUser.wishlist.push(studentWish);
+
+      this.userService.updateUser(connectedUser.id, { 'wish_list': connectedUser.wishlist}).subscribe(
+        () => {
+          this.notifications.success(studentWish.name + ' a été ajouté à la wishlist', '', NOTIF_PARAMS);
+        }, () => {
+          this.notifications.error('Erreur lors de l\'ajout à la wishlist', '', NOTIF_PARAMS);
+        }
+      );
+    } else {
+      const type = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'ce candidat' : 'cette entreprise';
+      this.notifications.warn('Vous ne pouvez ajouter ' + type + ' car il est déjà présent dans votre liste de souhait.', '', NOTIF_PARAMS);
+    }
   }
 
   openDialog(user: User) {
