@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
+import {SharedService} from '../services/shared.service';
 
 @Component({
   selector: 'app-navigation',
@@ -12,7 +13,8 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private cookieService: CookieService,
-    private router: Router
+    private router: Router,
+    public sharedService: SharedService
   ) {
   }
 

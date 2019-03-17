@@ -6,9 +6,8 @@ import {AccountType} from '../enums/account-type.enum';
 import * as _ from 'lodash';
 import {User} from '../model/user';
 import {Router} from '@angular/router';
-import { MatDialog } from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {StudentInfoComponent} from '../student-info/student-info.component';
-import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-user-list',
@@ -29,14 +28,15 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userService.isUserLogged();
     this.userService.getUserList().subscribe(
       (response) => {
         response.forEach((user) => {
           this.user = new User(user._id, user.email, user.account, user.user_type, user.wish_list);
           this.users.push(this.user);
         });
-        this.reduceListForSpecificUserType();
+        if (this.sharedService.connectedUser.userType !== AccountType.ADMIN) {
+          this.reduceListForSpecificUserType();
+        }
       }, () => {
         const userType = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'candidats' : 'enterprises';
         this.notifications.error('Erreur lors de la récupération des ' + userType, '');

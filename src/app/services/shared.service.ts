@@ -10,6 +10,8 @@ export class SharedService {
 
   private _connectedUser: User;
 
+  private _isConnected: boolean;
+
   constructor() { }
 
   get connectedUser(): User {
@@ -22,5 +24,13 @@ export class SharedService {
 
   get baseUrl(): string {
     return this._baseUrl;
+  }
+
+  get isConnected(): boolean {
+    return this._isConnected;
+  }
+
+  set isConnected(value: boolean) {
+    this._isConnected = value;
   }
 }

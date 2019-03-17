@@ -72,6 +72,7 @@ export class LoginComponent implements OnInit {
         } else {
           const user = response.user;
           this.sharedService.connectedUser = new User(user._id, user.email, user.account, user.user_type, user.wish_list);
+          this.sharedService.isConnected = true;
 
           this.cookieService.set('id', this.sharedService.connectedUser.id);
           this.cookieService.set('token', response.token);

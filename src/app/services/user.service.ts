@@ -48,11 +48,12 @@ export class UserService {
     return this.httpClient.delete(this.sharedService.baseUrl + /users/ + id, { headers: headers});
   }
 
-  public isUserLogged() {
+  public addLoggedUser() {
     if (_.isNil(this.sharedService.connectedUser) && this.cookieService.check('id')) {
       this.getUser(this.cookieService.get('id')).subscribe(
         (user) => {
           this.sharedService.connectedUser = new User(user._id, user.email, user.account, user.user_type, user.wish_list);
+          this.sharedService.isConnected = true;
         }
       );
     }
