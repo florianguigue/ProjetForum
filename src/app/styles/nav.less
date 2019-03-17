@@ -1,7 +1,90 @@
-nav {
-  .navbar-brand {
-    img {
-      width: 50px;
+@import "imports";
+
+header {
+  nav {
+    position: fixed;
+    width: 100%;
+    transition: all 0.5s ease;
+    border-bottom: 1px solid transparent;
+    z-index: 2;
+
+    .dropdown {
+      text-align: center;
+
+      @media @desktop {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+      }
+
+      .dropdown-menu {
+        @media @large {
+          width: 100%;
+          border: none;
+          background-color: @blue-polytech;
+
+          .dropdown-item {
+            color: white !important;
+          }
+        }
+      }
+
+      img {
+        object-fit: cover;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        min-height: 0;
+        min-width: 0;
+        border: 1px solid @dark-grey;
+      }
+    }
+
+    .dropdown-item {
+      color: @darker-grey !important;
+    }
+
+    &.bg-white {
+      border-bottom-color: @light-grey;
+
+      li {
+        a {
+          color: @darker-grey;
+        }
+      }
+    }
+
+    &.bg-white-mobile {
+      @media @large {
+        background-color: white;
+        li {
+          a {
+            color: @darker-grey;
+          }
+        }
+      }
+    }
+
+    @media @desktop {
+      background: transparent;
+    }
+
+    .navbar-brand {
+      @media @desktop {
+        background-color: white;
+        padding: 10px;
+        border-radius: 50%;
+      }
+
+      img {
+        width: 50px;
+      }
+    }
+
+    li {
+      a {
+        color: white;
+      }
     }
   }
 }

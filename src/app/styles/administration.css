@@ -21,11 +21,20 @@
 p {
   font-family: Raleway-Regular, sans-serif;
 }
+a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
 html {
   min-width: 300px;
 }
+.row-mobile {
+  margin-left: -15px;
+  margin-right: -15px;
+}
 .administration-page {
   background: url(../../assets/images/background-settings.jpeg) no-repeat center center fixed;
+  padding-top: 50px;
 }
 .administration-page .administration {
   padding-bottom: 50px;
@@ -46,20 +55,20 @@ html {
 .administration-page .administration .settings h2 {
   margin-bottom: 50px;
 }
-.administration-page .administration .settings button[type=submit] {
+.administration-page .administration .settings button {
   margin-left: 50%;
   transform: translateX(-50%);
   background-color: #009FDF;
   border: none;
 }
-.administration-page .administration .settings button[type=submit].save {
+.administration-page .administration .settings button.save {
   margin-top: 30px;
   background-color: #E87722;
 }
-.administration-page .administration .settings button[type=submit].plannify {
+.administration-page .administration .settings button.plannify {
   background-color: #009FDF;
 }
-.administration-page .administration .settings button[type=submit] .fas {
+.administration-page .administration .settings button .fas {
   padding-right: 10px;
 }
 .administration-page .administration .table-administration {

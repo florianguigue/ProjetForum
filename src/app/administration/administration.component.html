@@ -270,33 +270,54 @@
       </div>
       <div class="col-lg-5">
         <div class="settings">
-          <h2>Saisie des informations du planning</h2>
-          <form [formGroup]="settingsForm">
+          <h2>Informations du planning</h2>
+          <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="metting-time">Durée des entretiens</label>
-              <input type="text" class="form-control" id="metting-time" aria-describedby="timehelp"
-                     placeholder="Ex: 0.5">
+              <label for="metting-duration">Durée des entretiens</label>
+              <input type="text" class="form-control" id="metting-duration" aria-describedby="timehelp"
+                     placeholder="Ex: 0.5" formControlName="duration" value="{{settingsF.duration.value}}"
+                     [(ngModel)]="settings.time_meeting">
               <small id="timehelp" class="form-text text-muted">0.5 pour une demi heure
               </small>
+              <div *ngIf="settingsF.duration.errors">Valeur non valide</div>
             </div>
             <div class="form-group">
               <label for="start-time">Heure de début</label>
               <input type="text" class="form-control" id="start-time"
-                     placeholder="Ex: 14" aria-describedby="startHelp">
+                     placeholder="Ex: 14" aria-describedby="startHelp"
+                     formControlName="startTime" value="{{settingsF.startTime.value}}"
+                     [(ngModel)]="settings.start_time">
               <small id="startHelp" class="form-text text-muted">Heure de début des entretiens
               </small>
+              <div *ngIf="settingsF.startTime.errors">Valeur non valide</div>
             </div>
-            <label for="start-time">Heure de fin</label>
-            <input type="text" class="form-control" id="end-time"
-                   placeholder="Ex: 14" aria-describedby="endHelp">
-            <small id="endHelp" class="form-text text-muted">Heure de fin des entretiens
-            </small>
+            <div class="form-group">
+              <label for="start-time">Heure de fin</label>
+              <input type="text" class="form-control" id="end-time"
+                     placeholder="Ex: 14" aria-describedby="endHelp" formControlName="endTime"
+                     value="{{settingsF.endTime.value}}"
+                     [(ngModel)]="settings.end_time">
+              <small id="endHelp" class="form-text text-muted">Heure de fin des entretiens
+              </small>
+              <div *ngIf="settingsF.endTime.errors">Valeur non valide</div>
+            </div>
+            <div class="form-group">
+              <label for="max-rank">Souhaits maximum</label>
+              <input type="text" class="form-control" id="max-rank"
+                     placeholder="Ex: 8" aria-describedby="maxRankHelp"
+                     formControlName="maxRank" value="{{settingsF.maxRank.value}}"
+                     [(ngModel)]="settings.max_rank">
+              <small id="maxRankHelp" class="form-text text-muted">Nombre maximum de souhaits
+              </small>
+              <div *ngIf="settingsF.maxRank.errors">Valeur non valide</div>
+            </div>
             <button type="submit" class="btn btn-primary save"><i class="fas fa-save"></i>Enregistrer</button>
-            <hr>
-            <button type="submit" class="btn btn-primary plannify"><i class="fas fa-calendar-alt"></i>Plannifier les
-              entretiens
-            </button>
           </form>
+          <hr>
+          <button class="btn btn-primary plannify" (click)="plannify()"><i class="fas fa-calendar-alt"></i>Plannifier
+            les
+            entretiens
+          </button>
         </div>
       </div>
     </div>

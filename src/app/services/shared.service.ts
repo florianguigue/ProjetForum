@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AccountType } from '../enums/account-type.enum';
 import {User} from '../model/user';
 
 @Injectable({

@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {SharedService} from './shared.service';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {User} from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,8 @@ export class UserService {
   constructor(
     private sharedService: SharedService,
     private httpClient: HttpClient
-  ) { }
+  ) {
+  }
 
   public getUserList(): Observable<any> {
     return this.httpClient.get(this.sharedService.baseUrl + '/users', this.httpHeader);

@@ -21,8 +21,16 @@
 p {
   font-family: Raleway-Regular, sans-serif;
 }
+a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
 html {
   min-width: 300px;
+}
+.row-mobile {
+  margin-left: -15px;
+  margin-right: -15px;
 }
 .left {
   text-align: center;

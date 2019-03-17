@@ -1,4 +1,106 @@
-nav .navbar-brand img {
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../../assets/fonts/raleway/Raleway-Black.ttf);
+}
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url(../../assets/fonts/raleway/Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../assets/fonts/raleway/Raleway-Regular.ttf);
+}
+@font-face {
+  font-family: "EurostileT-Bold";
+  src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
+}
+p {
+  font-family: Raleway-Regular, sans-serif;
+}
+a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+html {
+  min-width: 300px;
+}
+.row-mobile {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+header nav {
+  position: fixed;
+  width: 100%;
+  transition: all 0.5s ease;
+  border-bottom: 1px solid transparent;
+  z-index: 2;
+}
+header nav .dropdown {
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  header nav .dropdown {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+  }
+}
+@media (max-width: 991.98px) {
+  header nav .dropdown .dropdown-menu {
+    width: 100%;
+    border: none;
+    background-color: #009FDF;
+  }
+  header nav .dropdown .dropdown-menu .dropdown-item {
+    color: white !important;
+  }
+}
+header nav .dropdown img {
+  object-fit: cover;
+  border-radius: 50%;
   width: 50px;
+  height: 50px;
+  min-height: 0;
+  min-width: 0;
+  border: 1px solid #ababab;
+}
+header nav .dropdown-item {
+  color: #606060 !important;
+}
+header nav.bg-white {
+  border-bottom-color: #E1E1E1;
+}
+header nav.bg-white li a {
+  color: #606060;
+}
+@media (max-width: 991.98px) {
+  header nav.bg-white-mobile {
+    background-color: white;
+  }
+  header nav.bg-white-mobile li a {
+    color: #606060;
+  }
+}
+@media (min-width: 1024px) {
+  header nav {
+    background: transparent;
+  }
+}
+@media (min-width: 1024px) {
+  header nav .navbar-brand {
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+  }
+}
+header nav .navbar-brand img {
+  width: 50px;
+}
+header nav li a {
+  color: white;
 }
 /*# sourceMappingURL=nav.css.map */
