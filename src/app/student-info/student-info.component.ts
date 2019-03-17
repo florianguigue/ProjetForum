@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {User} from '../model/user';
-import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../services/shared.service';
+import {MAT_DIALOG_DATA} from '@angular/material';
+import {NotificationsService} from 'angular2-notifications';
+
+interface DialogData {
+  user: User;
+}
 
 /**
  * Module d'affichage des informations de l'étudiant candidat (Identité, Résumé, CV).
@@ -16,26 +21,42 @@ export class StudentInfoComponent implements OnInit {
 
   pdfSrc = '/src/assets/attestation_CVEC.pdf';
 
-  public student: User;
-
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private sharedService: SharedService,
     private userService: UserService,
-    private route: ActivatedRoute,
-    private router: Router
+    private notifications: NotificationsService
   ) { }
 
   ngOnInit() {
-    this.userService.getUser(this.route.snapshot.paramMap.get('studentId')).subscribe((user) => {
-      this.student = new User(user._id, user.email, user.account, user.user_type, user.wish_list, null);
-      console.log(this.student);
-    }, (error) => {
-
-    });
   }
 
   addToWishList() {
-    this.sharedService.connectedUser.wishlist.push(this.student.id);
+    const connectedUser = this.sharedService.connectedUser;
+    let alreadyAdded = false;
+
+    connectedUser.wishlist.forEach((wish) => {
+      if (wish.id === this.data.user.id) {
+        alreadyAdded = true;
+      }
+    });
+
+    if (!alreadyAdded) {
+      const studentWish = {
+        'id': this.data.user.id,
+        'name': this.data.user.displayName,
+        'position': this.sharedService.connectedUser.wishlist.length + 1
+      };
+      connectedUser.wishlist.push(studentWish);
+
+      this.userService.updateUser(connectedUser.id, { 'wish_list': connectedUser.wishlist}).subscribe(
+        () => {
+          this.notifications.success(studentWish.name + ' a été ajouté à la wishlist', '');
+        }, () => {
+          this.notifications.error('Erreur lors de l\'ajout à la wishlist', '');
+        }
+      );
+    }
   }
 
 }

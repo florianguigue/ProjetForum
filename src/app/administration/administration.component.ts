@@ -4,6 +4,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../services/shared.service';
 import {SettingsService} from '../services/settings.service';
 import {Settings} from '../model/settings';
+import {UserService} from '../services/user.service';
+import {NotificationsService} from 'angular2-notifications';
+import {User} from '../model/user';
+import {AccountType} from '../enums/account-type.enum';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-administration',
@@ -16,17 +21,34 @@ export class AdministrationComponent implements OnInit {
   submitted = false;
 
   public settings: Settings;
+  public users = [];
+  private user: User;
 
   constructor(
     private router: Router,
     private sharedService: SharedService,
     private route: ActivatedRoute,
     private settingsService: SettingsService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private notifications: NotificationsService
   ) {
   }
 
   ngOnInit() {
+
+    this.userService.getUserList().subscribe(
+      (response) => {
+        response.forEach((user) => {
+          this.user = new User(user._id, user.email, user.account, user.user_type, user.wish_list, null);
+          this.users.push(this.user);
+        });
+      }, () => {
+        const userType = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'candidats' : 'enterprises';
+        this.notifications.error('Erreur lors de la récupération des ' + userType, '');
+      }
+    );
+    
     this.settings = new Settings(0, 0, 0, 0);
 
     this.settingsForm = this.formBuilder.group({
@@ -59,6 +81,23 @@ export class AdministrationComponent implements OnInit {
     } else {
       this.settingsService.updateSettings(this.settingsForm.controls);
     }
+  }
+
+  editUser(user: User) {
+
+  }
+
+  deleteUser(id: string) {
+    this.userService.deleteUser(id).subscribe(
+      () => {
+        _.remove(this.users, (user) => {
+          return user.id === id;
+        });
+        this.notifications.success('Utilisateur supprimé avec succès', '');
+      }, () => {
+        this.notifications.error('Erreur lors de la suppression de l\'utilisateur', '');
+      }
+    );
   }
 
   plannify() {

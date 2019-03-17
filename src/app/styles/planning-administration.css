@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @font-face {
   font-family: "Raleway-Black";
   src: url(../../assets/fonts/raleway/Raleway-Black.ttf);

@@ -64,9 +64,6 @@ export class WishlistComponent implements OnInit {
   }
 
   validWishlist() {
-    const body = {
-      'wish_list': this.wishlist
-    };
-    this.userService.updateUser('5c8906069afe311678ee69f2'/*this.sharedService.connectedUser.id*/, body).subscribe();
+    this.userService.updateUser(this.sharedService.connectedUser.id, { 'wish_list': this.wishlist}).subscribe();
   }
 }

@@ -16,6 +16,10 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { PlanningAdministrationComponent } from './planning-administration/planning-administration.component';
 import { UserListComponent } from './user-list/user-list.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import {MatDialogModule} from '@angular/material';
+import {SettingsService} from './services/settings.service';
 
 @NgModule({
   declarations: [
@@ -31,12 +35,15 @@ import { UserListComponent } from './user-list/user-list.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot(),
+    MatDialogModule,
     AppRoutingModule,
     ReactiveFormsModule,
     SimplePdfViewerModule,
     DragDropModule
   ],
-  providers: [SharedService, UserService],
+  providers: [SharedService, UserService, SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

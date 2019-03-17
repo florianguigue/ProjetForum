@@ -4,53 +4,19 @@
       <div class="banner"><h2>Les Candidats</h2></div>
       <div class="cards-wrapper offset-lg-1 col-lg-10 col-11">
         <div class="cards">
-          <div class="meeting col-lg-6">
+          <div *ngFor="let user of users" class="meeting col-lg-6">
             <div class="card">
               <div class="row">
                 <div class="portrait-wrapper col-md-3">
-                  <img src="../../assets/images/pexels-photo-614810.jpeg" alt="portrait" class="portrait"/>
+                  <img src="../../assets/images/default_male.jpg" alt="portrait" class="portrait"/>
                 </div>
                 <div class="info col-md-8">
                   <div class="basic col-md-9">
-                    <p class="name">Name</p>
+                    <p class="name">{{user.displayName}}</p>
                     <p class="description">Lorem ipsum dolor sit amet no regnotis de alor mor paras...</p>
                   </div>
-                  <a href="" class="more col-md-3">Voir plus</a>
-                  <a href="" class="add col-md-1"><i class="fas fa-user-plus"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="meeting col-lg-6">
-            <div class="card">
-              <div class="row">
-                <div class="portrait-wrapper col-md-3">
-                  <img src="../../assets/images/pexels-photo-614810.jpeg" alt="portrait" class="portrait"/>
-                </div>
-                <div class="info col-md-8">
-                  <div class="basic col-md-9">
-                    <p class="name">Name</p>
-                    <p class="description">Lorem ipsum dolor sit amet no regnotis de alor mor paras...</p>
-                  </div>
-                  <a href="" class="more col-md-3">Voir plus</a>
-                  <a href="" class="add col-md-1"><i class="fas fa-user-plus"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="meeting col-lg-6">
-            <div class="card">
-              <div class="row">
-                <div class="portrait-wrapper col-md-3">
-                  <img src="../../assets/images/pexels-photo-614810.jpeg" alt="portrait" class="portrait"/>
-                </div>
-                <div class="info col-md-8">
-                  <div class="basic col-md-9">
-                    <p class="name">Name</p>
-                    <p class="description">Lorem ipsum dolor sit amet no regnotis de alor mor paras...</p>
-                  </div>
-                  <a href="" class="more col-md-3">Voir plus</a>
-                  <a href="" class="add col-md-1"><i class="fas fa-user-plus"></i></a>
+                  <button mat-raised-button (click)="openDialog(user)" class="more col-md-3">Voir plus</button>
+                  <button (click)="addToWishlist(user)" class="add col-md-1"><i class="fas fa-user-plus"></i></button>
                 </div>
               </div>
             </div>

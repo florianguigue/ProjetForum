@@ -4,6 +4,8 @@ import {SharedService} from '../services/shared.service';
 import {AccountType} from '../enums/account-type.enum';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../services/user.service';
+import {NotificationsService} from 'angular2-notifications';
+import {User} from '../model/user';
 
 
 /**
@@ -26,7 +28,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private sharedService: SharedService,
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private notifications: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -51,17 +54,36 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
-
-    switch (this.sharedService.connectedUser.userType) {
-      case AccountType.ADMIN:
-        this.router.navigate(['/planningGlb']);
-        break;
-      case AccountType.COMPANY:
-        this.router.navigate(['/companyInfo']);
-        break;
-      case AccountType.APPLICANT:
-        this.router.navigate(['/studentInfo']);
-    }
+    const body = {
+      'email': this.email,
+      'password': this.password
+    };
+    this.userService.login(body).subscribe(
+      (response) => {
+        if (response.success === false) {
+          this.notifications.error('Email ou mot de passe incorrect', '', {
+            timeOut: 6000,
+            showProgressBar: false,
+            pauseOnHover: true,
+            clickToClose: true
+          });
+        } else {
+          const user = response.user;
+          this.sharedService.connectedUser = new User(user._id, user.email, user.account, user.user_type, user.wish_list, response.token);
+          switch (this.sharedService.connectedUser.userType) {
+            case AccountType.ADMIN:
+              this.router.navigate(['administration']);
+              break;
+            case AccountType.COMPANY:
+              this.router.navigate(['users']);
+              break;
+            case AccountType.APPLICANT:
+              this.router.navigate(['users']);
+          }
+        }
+      }, (error) => {
+        this.notifications.error('Erreur lors de la connexion', 'Contacter l\'administrateur');
+      }
+    );
   }
 }

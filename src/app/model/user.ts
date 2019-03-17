@@ -8,18 +8,15 @@ export class User {
   private _password: string;
   private _account: Account;
   private _userType: AccountType;
-  private _wishlist: Array<string>;
+  private _wishlist = [];
   private _displayName: string;
   private _token: string;
 
 
-  constructor(id: string, email: string, account: Account, userType: string, wishlist: Array<string>, token: string) {
+  constructor(id: string, email: string, account: Account, userType: string, wishlist: Array<any>, token: string) {
     this.id = id;
     this._email = email;
     this._account = account;
-    if (!_.isNil(this._account.name) || !_.isNil(this._account.prenom)) {
-      this._displayName = this._account.prenom + ' ' + this._account.name;
-    }
 
     this._wishlist = wishlist;
     this._token = token !== undefined ? token : null;
@@ -31,7 +28,7 @@ export class User {
       case 'Company':
         this._userType = AccountType.COMPANY;
         break;
-      case 'Admin':
+      case 'Administrator':
         this._userType = AccountType.ADMIN;
         break;
     }
@@ -77,16 +74,24 @@ export class User {
     this._userType = value;
   }
 
-  get wishlist(): Array<string> {
+  get wishlist(): Array<any> {
     return this._wishlist;
   }
 
-  set wishlist(value: Array<string>) {
+  set wishlist(value: Array<any>) {
     this._wishlist = value;
   }
 
 
   get displayName(): string {
-    return this._displayName;
+    return !_.isNil(this._account.prenom) ? this._account.prenom + ' ' + this._account.name : this._account.name;
+  }
+
+  get token(): string {
+    return this._token;
+  }
+
+  set token(value: string) {
+    this._token = value;
   }
 }
