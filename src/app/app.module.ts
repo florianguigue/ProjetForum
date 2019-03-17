@@ -21,6 +21,8 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
 import {MatDialogModule} from '@angular/material';
 import {SettingsService} from './services/settings.service';
 import {CookieService} from 'ngx-cookie-service';
+import {AuthService} from './services/auth.service';
+import {AuthGuardService} from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -44,8 +46,11 @@ import {CookieService} from 'ngx-cookie-service';
     SimplePdfViewerModule,
     DragDropModule
   ],
-  providers: [SharedService, UserService, SettingsService, CookieService],
-  bootstrap: [AppComponent]
+  providers: [SharedService, UserService, SettingsService, CookieService, AuthService, AuthGuardService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    StudentInfoComponent
+  ]
 })
 export class AppModule {
 }

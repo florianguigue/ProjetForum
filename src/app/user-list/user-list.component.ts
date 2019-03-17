@@ -68,7 +68,6 @@ export class UserListComponent implements OnInit {
   }
 
   openDialog(user: User) {
-    console.log(user);
     this.dialog.open(StudentInfoComponent, {
       data: {
         user: user
