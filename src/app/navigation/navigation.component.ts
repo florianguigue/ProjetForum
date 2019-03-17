@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CookieService} from 'ngx-cookie-service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -8,7 +10,10 @@ import {Component, OnInit} from '@angular/core';
 
 export class NavigationComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private cookieService: CookieService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -19,6 +24,11 @@ export class NavigationComponent implements OnInit {
         document.getElementsByTagName('nav')[0].classList.remove('bg-white');
       }
     });
+  }
+
+  disconnect() {
+    this.cookieService.deleteAll();
+    this.router.navigate(['login']);
   }
 
 }

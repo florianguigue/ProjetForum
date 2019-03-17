@@ -40,7 +40,7 @@ export class AdministrationComponent implements OnInit {
     this.userService.getUserList().subscribe(
       (response) => {
         response.forEach((user) => {
-          this.user = new User(user._id, user.email, user.account, user.user_type, user.wish_list, null);
+          this.user = new User(user._id, user.email, user.account, user.user_type, user.wish_list);
           this.users.push(this.user);
         });
       }, () => {

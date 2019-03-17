@@ -10,16 +10,14 @@ export class User {
   private _userType: AccountType;
   private _wishlist = [];
   private _displayName: string;
-  private _token: string;
 
 
-  constructor(id: string, email: string, account: Account, userType: string, wishlist: Array<any>, token: string) {
+  constructor(id: string, email: string, account: Account, userType: string, wishlist: Array<any>) {
     this.id = id;
     this._email = email;
     this._account = account;
 
     this._wishlist = wishlist;
-    this._token = token !== undefined ? token : null;
 
     switch (userType) {
       case 'Applicant':
@@ -85,13 +83,5 @@ export class User {
 
   get displayName(): string {
     return !_.isNil(this._account.prenom) ? this._account.prenom + ' ' + this._account.name : this._account.name;
-  }
-
-  get token(): string {
-    return this._token;
-  }
-
-  set token(value: string) {
-    this._token = value;
   }
 }

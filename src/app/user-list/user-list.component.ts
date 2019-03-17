@@ -8,6 +8,7 @@ import {User} from '../model/user';
 import {Router} from '@angular/router';
 import { MatDialog } from '@angular/material';
 import {StudentInfoComponent} from '../student-info/student-info.component';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-user-list',
@@ -28,14 +29,11 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (_.isNil(this.sharedService.connectedUser)) {
-      this.router.navigate(['login']);
-    }
-
+    this.userService.isUserLogged();
     this.userService.getUserList().subscribe(
       (response) => {
         response.forEach((user) => {
-          this.user = new User(user._id, user.email, user.account, user.user_type, user.wish_list, null);
+          this.user = new User(user._id, user.email, user.account, user.user_type, user.wish_list);
           this.users.push(this.user);
         });
         this.reduceListForSpecificUserType();
