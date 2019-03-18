@@ -48,51 +48,48 @@ html {
   color: #009FDF;
   cursor: pointer;
 }
-.student-info-page .left {
-  text-align: center;
-}
-.student-info-page .left .jumbotron {
-  background-color: transparent;
-}
-.student-info-page .left .jumbotron h1 {
-  font-family: Raleway-Bold;
-  padding-bottom: 15px;
-}
-.student-info-page .left .jumbotron p {
-  font-family: Raleway-Regular;
-  text-align: justify;
-}
-.student-info-page .left .jumbotron .button {
+.applicant-page .banner {
+  background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
+  background-size: cover;
+  width: 100%;
+  position: fixed;
   display: flex;
+  align-items: center;
+  height: 300px;
 }
-.student-info-page .left .jumbotron .button button {
-  border: none;
-  cursor: pointer;
-  font-family: Raleway-Bold;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #fff;
-  text-transform: uppercase;
-  width: 50%;
-  height: 62px;
-  border-radius: 3px;
-  background: dodgerblue;
+.applicant-page .banner h2 {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  color: #fbfbfb;
+}
+.applicant-page .applicant {
+  background: linear-gradient(#E1E1E1, #fbfbfb);
+  width: 100%;
+}
+.applicant-page .applicant form {
+  background-color: white;
+  box-shadow: 0 0 4px 0 #ababab;
+  margin-top: 200px;
+  padding: 40px;
+}
+.applicant-page .applicant form label {
+  color: #009FDF;
+}
+.applicant-page .applicant form .custom-file {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.applicant-page .applicant form .wishlist > div {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 25px;
-  margin: 10px;
+  height: 100%;
 }
-.student-info-page .left .jumbotron .button button i {
-  margin-right: 10px;
+.applicant-page .applicant form .wishlist > div button {
+  background: none;
+  border: none;
+  color: #009FDF;
 }
-.student-info-page .left .jumbotron .button button:hover {
-  border-color: dodgerBlue;
-  box-shadow: 0 0 8px 0 dodgerBlue;
-}
-.student-info-page .right {
-  background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
-  background-size: cover;
-  height: 100vh;
-}
-/*# sourceMappingURL=student-info.css.map */
+/*# sourceMappingURL=applicant-form.css.map */

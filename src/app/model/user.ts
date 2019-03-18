@@ -80,7 +80,6 @@ export class User {
     this._wishlist = value;
   }
 
-
   get displayName(): string {
     return !_.isNil(this._account.prenom) ? this._account.prenom + ' ' + this._account.name : this._account.name;
   }

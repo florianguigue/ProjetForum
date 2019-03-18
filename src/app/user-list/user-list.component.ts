@@ -95,10 +95,18 @@ export class UserListComponent implements OnInit {
   }
 
   openDialog(user: User) {
-    this.dialog.open(StudentInfoComponent, {
+    const dialogRef = this.dialog.open(StudentInfoComponent, {
+      panelClass: 'full-width-dialog',
+      width: '100%',
       data: {
         user: user
       },
+    });
+
+    document.getElementsByTagName('html')[0].classList.add('overflow-hidden');
+
+    dialogRef.afterClosed().subscribe(result => {
+      document.getElementsByTagName('html')[0].classList.remove('overflow-hidden');
     });
   }
 }

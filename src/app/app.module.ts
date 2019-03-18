@@ -20,6 +20,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {MatDialogModule} from '@angular/material';
 import {SettingsService} from './services/settings.service';
+import { ApplicantFormComponent } from './applicant-form/applicant-form.component';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
@@ -34,7 +35,8 @@ import {AuthGuardService} from './services/auth-guard.service';
     PlanningComponent,
     WishlistComponent,
     PlanningAdministrationComponent,
-    UserListComponent
+    UserListComponent,
+    ApplicantFormComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +51,8 @@ import {AuthGuardService} from './services/auth-guard.service';
   providers: [SharedService, UserService, SettingsService, CookieService, AuthService, AuthGuardService],
   bootstrap: [AppComponent],
   entryComponents: [
-    StudentInfoComponent
+    StudentInfoComponent,
+    WishlistComponent
   ]
 })
-export class AppModule {
-}
+export class AppModule { }

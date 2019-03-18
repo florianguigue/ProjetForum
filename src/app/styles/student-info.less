@@ -1,59 +1,62 @@
 @import "imports";
 
-.left {
-  text-align: center;
+.student-info-page {
+  .left {
+    text-align: center;
 
-  .jumbotron {
-    background-color: transparent;
+    .jumbotron {
+      background-color: transparent;
 
-    h1 {
-      font-family: Raleway-Bold;
-      padding-bottom: 15px;
-    }
-
-    p {
-      font-family: Raleway-Regular;
-      text-align: justify;
-    }
-
-    .button {
-      display: flex;
-
-      button {
-        border: none;
-        cursor: pointer;
+      h1 {
         font-family: Raleway-Bold;
-        font-size: 16px;
-        line-height: 1.5;
-        color: @white;
-        text-transform: uppercase;
-        width: 50%;
-        height: 62px;
-        border-radius: 3px;
-        background: dodgerblue;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 25px;
-        margin: 10px;
+        padding-bottom: 15px;
+      }
 
-        i {
-          margin-right: 10px;
+      p {
+        font-family: Raleway-Regular;
+        text-align: justify;
+      }
+
+      .button {
+        display: flex;
+
+        button {
+          border: none;
+          cursor: pointer;
+          font-family: Raleway-Bold;
+          font-size: 16px;
+          line-height: 1.5;
+          color: @white;
+          text-transform: uppercase;
+          width: 50%;
+          height: 62px;
+          border-radius: 3px;
+          background: dodgerblue;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 25px;
+          margin: 10px;
+
+          i {
+            margin-right: 10px;
+          }
+        }
+
+        button:hover {
+          border-color: dodgerBlue;
+          box-shadow: 0 0 8px 0 dodgerBlue;
+
         }
       }
 
-      button:hover {
-        border-color: dodgerBlue;
-        box-shadow: 0 0 8px 0 dodgerBlue;
-
-      }
     }
 
   }
 
-}
-
-.right {
-  height: 100vh;
-
+  .right {
+    background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
+    background-size: cover;
+    height: 100vh;
+  }
 }

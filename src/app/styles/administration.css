@@ -33,6 +33,21 @@ html {
   margin-left: -15px;
   margin-right: -15px;
 }
+.full-width-dialog {
+  max-width: 100vw !important;
+}
+.full-width-dialog mat-dialog-container {
+  padding: 0;
+}
+.close {
+  float: left;
+}
+.close button {
+  background: none;
+  border: none;
+  color: #009FDF;
+  cursor: pointer;
+}
 .administration-page {
   background: url(../../assets/images/background-settings.jpeg) no-repeat center center fixed;
   padding-top: 50px;
@@ -76,6 +91,10 @@ html {
   box-shadow: 0 0 4px 0 #ababab;
   background: linear-gradient(white, #fbfbfb);
   padding: 25px;
+}
+.administration-page .administration .table-administration button {
+  background: none;
+  border: none;
 }
 .administration-page .administration .table-administration h2 {
   margin-bottom: 50px;

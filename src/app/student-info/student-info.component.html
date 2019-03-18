@@ -1,18 +1,23 @@
-<div class="row">
-  <div class="col-lg-6 left">
-    <div class="jumbotron">
-      <h1 class="display-4">{{data.user.displayName}}</h1>
-      <p class="load">{{data.user.account.description}}</p>
-      <hr class="my-4"/>
-      <div class="button">
-        <button mat-button><i class="fa fa-download"></i>
-          Télécharger le CV
-        </button>
-        <button mat-button (click)="addToWishList()"><i class="fa fa-plus"></i>Ajouter à mes rendez-vous</button>
+<div class="student-info-page">
+  <div class="close">
+    <button mat-dialog-close><i class="fas fa-times"></i></button>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 left">
+      <div class="jumbotron">
+        <h1 class="display-4">{{data.user.displayName}}</h1>
+        <p class="load">{{data.user.account.description}}</p>
+        <hr class="my-4"/>
+        <div class="button">
+          <button mat-button><i class="fa fa-download"></i>
+            Télécharger le CV
+          </button>
+          <button mat-button (click)="addToWishList()"><i class="fa fa-plus"></i>Ajouter à mes rendez-vous</button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-6 right">
-    <simple-pdf-viewer [src]="pdfSrc"></simple-pdf-viewer>
+    <div class="col-lg-6 right">
+      <simple-pdf-viewer [src]="pdfSrc"></simple-pdf-viewer>
+    </div>
   </div>
 </div>
