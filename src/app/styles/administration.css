@@ -77,6 +77,10 @@ html {
   background: linear-gradient(white, #fbfbfb);
   padding: 25px;
 }
+.administration-page .administration .table-administration button {
+  background: none;
+  border: none;
+}
 .administration-page .administration .table-administration h2 {
   margin-bottom: 50px;
 }

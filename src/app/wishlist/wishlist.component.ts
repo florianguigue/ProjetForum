@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, CdkDropList } from '@angular/cdk/drag-drop';
 import {UserService} from '../services/user.service';
 import {SharedService} from '../services/shared.service';
 import * as _ from 'lodash';
+import {MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-wishlist',
@@ -19,7 +20,7 @@ export class WishlistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userService.getUser('5c8906069afe311678ee69f2'/*this.sharedService.connectedUser.id*/).subscribe(
+    this.userService.getUser(this.sharedService.connectedUser.id).subscribe(
       (user) => {
         this.wishlist = user.wish_list;
       }

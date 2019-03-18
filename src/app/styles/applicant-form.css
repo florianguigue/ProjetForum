@@ -1,0 +1,78 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@font-face {
+  font-family: "Raleway-Black";
+  src: url(../../assets/fonts/raleway/Raleway-Black.ttf);
+}
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url(../../assets/fonts/raleway/Raleway-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url(../../assets/fonts/raleway/Raleway-Regular.ttf);
+}
+@font-face {
+  font-family: "EurostileT-Bold";
+  src: url(../../assets/fonts/Eurostil/EurostileT-Bold.ttf);
+}
+p {
+  font-family: Raleway-Regular, sans-serif;
+}
+a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+html {
+  min-width: 300px;
+}
+.row-mobile {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.applicant-page .banner {
+  background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
+  background-size: cover;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 300px;
+}
+.applicant-page .banner h2 {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  color: #fbfbfb;
+}
+.applicant-page .applicant {
+  background: linear-gradient(#E1E1E1, #fbfbfb);
+  width: 100%;
+}
+.applicant-page .applicant form {
+  background-color: white;
+  box-shadow: 0 0 4px 0 #ababab;
+  margin-top: 200px;
+  padding: 40px;
+}
+.applicant-page .applicant form label {
+  color: #009FDF;
+}
+.applicant-page .applicant form .custom-file {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.applicant-page .applicant form .wishlist > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.applicant-page .applicant form .wishlist > div a {
+  color: #009FDF;
+}
+/*# sourceMappingURL=applicant-form.css.map */

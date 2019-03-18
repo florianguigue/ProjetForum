@@ -1,0 +1,55 @@
+@import "imports";
+
+.applicant-page {
+
+  .banner {
+    background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
+    background-size: cover;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 300px;
+
+    h2 {
+      .h2-Polytech();
+      text-align: center;
+      width: 100%;
+      color: @white-grey;
+    }
+  }
+
+  .applicant {
+    background: linear-gradient(@light-grey, @white-grey);
+    width: 100%;
+
+    form {
+      background-color: white;
+      .box-shadow(@dark-grey);
+      margin-top: 200px;
+      padding: 40px;
+
+      label {
+        color: @blue-polytech;
+      }
+
+      .custom-file {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .wishlist {
+        & > div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+
+          a {
+            color: @blue-polytech;
+          }
+        }
+      }
+    }
+  }
+}

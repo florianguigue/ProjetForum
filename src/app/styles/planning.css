@@ -50,7 +50,7 @@ html {
   color: #fbfbfb;
 }
 .planning-page .planning {
-  background-size: contain;
+  background-size: cover;
   width: 100%;
 }
 @media (max-width: 991.98px) {
