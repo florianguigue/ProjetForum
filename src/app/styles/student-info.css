@@ -33,24 +33,39 @@ html {
   margin-left: -15px;
   margin-right: -15px;
 }
-.left {
+.full-width-dialog {
+  max-width: 100vw !important;
+}
+.full-width-dialog mat-dialog-container {
+  padding: 0;
+}
+.close {
+  float: left;
+}
+.close button {
+  background: none;
+  border: none;
+  color: #009FDF;
+  cursor: pointer;
+}
+.student-info-page .left {
   text-align: center;
 }
-.left .jumbotron {
+.student-info-page .left .jumbotron {
   background-color: transparent;
 }
-.left .jumbotron h1 {
+.student-info-page .left .jumbotron h1 {
   font-family: Raleway-Bold;
   padding-bottom: 15px;
 }
-.left .jumbotron p {
+.student-info-page .left .jumbotron p {
   font-family: Raleway-Regular;
   text-align: justify;
 }
-.left .jumbotron .button {
+.student-info-page .left .jumbotron .button {
   display: flex;
 }
-.left .jumbotron .button button {
+.student-info-page .left .jumbotron .button button {
   border: none;
   cursor: pointer;
   font-family: Raleway-Bold;
@@ -68,14 +83,16 @@ html {
   padding: 0 25px;
   margin: 10px;
 }
-.left .jumbotron .button button i {
+.student-info-page .left .jumbotron .button button i {
   margin-right: 10px;
 }
-.left .jumbotron .button button:hover {
+.student-info-page .left .jumbotron .button button:hover {
   border-color: dodgerBlue;
   box-shadow: 0 0 8px 0 dodgerBlue;
 }
-.right {
+.student-info-page .right {
+  background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
+  background-size: cover;
   height: 100vh;
 }
 /*# sourceMappingURL=student-info.css.map */

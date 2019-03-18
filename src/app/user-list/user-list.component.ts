@@ -32,7 +32,8 @@ export class UserListComponent implements OnInit {
     private notifications: NotificationsService,
     private sharedService: SharedService,
     private dialog: MatDialog
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.userService.getUserList().subscribe(
@@ -54,7 +55,7 @@ export class UserListComponent implements OnInit {
   reduceListForSpecificUserType() {
     _.remove(this.users, (user) => {
       const userType = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'Company' : 'Applicant';
-        return user.userType === userType;
+      return user.userType === userType;
     });
   }
 
@@ -76,7 +77,7 @@ export class UserListComponent implements OnInit {
       };
       connectedUser.wishlist.push(studentWish);
 
-      this.userService.updateUser(connectedUser.id, { 'wish_list': connectedUser.wishlist}).subscribe(
+      this.userService.updateUser(connectedUser.id, {'wish_list': connectedUser.wishlist}).subscribe(
         () => {
           this.notifications.success(studentWish.name + ' a été ajouté à la wishlist', '', NOTIF_PARAMS);
         }, () => {
@@ -90,10 +91,18 @@ export class UserListComponent implements OnInit {
   }
 
   openDialog(user: User) {
-    this.dialog.open(StudentInfoComponent, {
+    const dialogRef = this.dialog.open(StudentInfoComponent, {
+      panelClass: 'full-width-dialog',
+      width: '100%',
       data: {
         user: user
       },
+    });
+
+    document.getElementsByTagName('html')[0].classList.add('overflow-hidden');
+
+    dialogRef.afterClosed().subscribe(result => {
+      document.getElementsByTagName('html')[0].classList.remove('overflow-hidden');
     });
   }
 }
