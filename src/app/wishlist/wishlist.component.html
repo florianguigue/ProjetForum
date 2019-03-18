@@ -1,6 +1,6 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
   <div class="example-box" *ngFor="let wish of wishlist" cdkDrag>{{wish.name}}
-    <button class="btn btn-primary" (click)="remove(wish.id)">
+    <button class="btn btn-primary" (click)="remove(wish)">
       <i class="fa fa-user-minus"></i>
     </button>
   </div>

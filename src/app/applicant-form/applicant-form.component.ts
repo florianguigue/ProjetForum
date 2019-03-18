@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {WishlistComponent} from '../wishlist/wishlist.component';
 
@@ -10,21 +10,26 @@ import {WishlistComponent} from '../wishlist/wishlist.component';
 })
 export class ApplicantFormComponent implements OnInit {
 
-  userForm: FormBuilder;
+  userForm: FormGroup;
 
   constructor(
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private formBuilder: FormBuilder
   ) {
   }
 
   ngOnInit() {
+    this.userForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
   }
 
   onSubmit() {
-    return;
+
   }
 
-  openWishlist() {
+  openDialog() {
     this.matDialog.open(WishlistComponent);
   }
 

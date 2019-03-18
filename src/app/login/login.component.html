@@ -14,7 +14,7 @@
           <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
           <div *ngIf="submitted && f.email.errors" class="invalid-tooltip">
             <div *ngIf="f.email.errors.required"> Email requis</div>
-            <div *ngIf="f.email.errors.email"> Email valide requis</div>
+            <div *ngIf="f.email.errors.getEmail"> Email valide requis</div>
           </div>
         </div>
         <div class="inputWithIcon">

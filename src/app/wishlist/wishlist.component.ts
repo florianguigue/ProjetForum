@@ -1,9 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {CdkDragDrop, moveItemInArray, CdkDropList } from '@angular/cdk/drag-drop';
+import {Component, OnInit} from '@angular/core';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {UserService} from '../services/user.service';
 import * as _ from 'lodash';
 import {CookieService} from 'ngx-cookie-service';
 import {User} from '../model/user';
+import {NotificationsService} from 'angular2-notifications';
+
+const NOTIF_PARAMS = {
+  timeOut: 6000,
+  showProgressBar: false,
+  pauseOnHover: true,
+  clickToClose: true
+};
 
 @Component({
   selector: 'app-wishlist',
@@ -18,22 +26,31 @@ export class WishlistComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private cookieService: CookieService
-  ) { }
+    private cookieService: CookieService,
+    private notifications: NotificationsService
+  ) {
+  }
 
   ngOnInit() {
     this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
-    this.userService.getUser(this.connectedUser.id).subscribe(
-      (user) => {
-        this.wishlist = user.wish_list;
+    Object.keys(this.connectedUser.wishlist[0]).forEach(
+      (key) => {
+        this.userService.getUser(key).subscribe(
+          (user) => {
+            const value = {
+              'id': key,
+              'name': user.account.prenom !== undefined ? user.account.prenom + ' ' + user.account.name : user.account.name,
+              'position': this.connectedUser.wishlist[0][key]
+            };
+            this.wishlist.push(value);
+          }
+        );
       }
     );
   }
 
   drop(event: CdkDragDrop<string[]>) {
     let nextPosition, id;
-
-
 
     this.wishlist.forEach((wish) => {
       if (wish.position === event.previousIndex + 1) {
@@ -58,16 +75,34 @@ export class WishlistComponent implements OnInit {
       }
     });
     moveItemInArray(this.wishlist, event.previousIndex, event.currentIndex);
-    console.log(this.wishlist);
   }
 
-  remove(id: string) {
-    _.remove(this.wishlist, (wish) => {
-      return wish.id === id;
+  remove(wish) {
+    this.wishlist.forEach(
+      (value) => {
+        if (value.position > wish.position) {
+          value.position--;
+        }
+      }
+    );
+    _.remove(this.wishlist, (value) => {
+      return value.id === wish.id;
     });
   }
 
   validWishlist() {
-    this.userService.updateUser(this.connectedUser.id, { 'wish_list': this.wishlist}).subscribe();
+    this.connectedUser.wishlist[0] = {};
+    this.wishlist.forEach(
+      (wish) => {
+        this.connectedUser.wishlist[0][wish.id] = wish.position;
+      }
+    );
+
+    this.userService.updateUser(this.connectedUser.id, {'wish_list': this.connectedUser.wishlist}).subscribe(
+      () => {
+        this.notifications.success('La wishlist a été modifié', '', NOTIF_PARAMS);
+        this.cookieService.set('user', JSON.stringify(this.connectedUser));
+      }
+    );
   }
 }

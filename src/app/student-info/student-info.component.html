@@ -6,13 +6,16 @@
     <div class="col-lg-6 left">
       <div class="jumbotron">
         <h1 class="display-4">{{data.user.displayName}}</h1>
-        <p class="load">{{data.user.account.description}}</p>
+        <p class="load">{{data.user.getAccount.description}}</p>
         <hr class="my-4"/>
         <div class="button">
           <button mat-button><i class="fa fa-download"></i>
             Télécharger le CV
           </button>
-          <button mat-button (click)="addToWishList()"><i class="fa fa-plus"></i>Ajouter à mes rendez-vous</button>
+          <div [ngSwitch]="connectedUser.wishlist[0][data.user.id]">
+            <button *ngSwitchCase="undefined" mat-button (click)="addToWishList()"><i class="fa fa-plus"></i>Ajouter à mes rendez-vous</button>
+            <button *ngSwitchDefault mat-button (click)="remove()"><i class="fa fa-plus"></i>Retirer de mes rendez-vous</button>
+          </div>
         </div>
       </div>
     </div>

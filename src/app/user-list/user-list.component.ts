@@ -36,10 +36,12 @@ export class UserListComponent implements OnInit {
     private sharedService: SharedService,
     private dialog: MatDialog,
     private cookieService: CookieService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
+    console.log(this.connectedUser);
     this.userService.getUserList().subscribe(
       (response) => {
         response.forEach((user) => {
@@ -59,39 +61,36 @@ export class UserListComponent implements OnInit {
   reduceListForSpecificUserType() {
     _.remove(this.users, (user) => {
       const userType = this.connectedUser.userType === AccountType.COMPANY ? 'Company' : 'Applicant';
-        return user.userType === userType;
+      return user.userType === userType;
     });
   }
 
   addToWishlist(user: User) {
     const connectedUser = this.connectedUser;
-    let alreadyAdded = false;
+    console.log(connectedUser);
 
-    connectedUser.wishlist.forEach((wish) => {
-      if (wish.id === user.id) {
-        alreadyAdded = true;
+
+    connectedUser.wishlist[0][user.id] = Object.keys(connectedUser.wishlist[0]).length + 1;
+
+    this.userService.updateUser(connectedUser.id, {'wish_list': connectedUser.wishlist}).subscribe(
+      () => {
+        this.notifications.success(user.displayName + ' a été ajouté à la wishlist', '', NOTIF_PARAMS);
+        this.cookieService.set('user', JSON.stringify(connectedUser));
+      }, () => {
+        this.notifications.error('Erreur lors de l\'ajout à la wishlist', '', NOTIF_PARAMS);
       }
-    });
+    );
 
-    if (!alreadyAdded) {
-      const studentWish = {
-        'id': user.id,
-        'name': user.displayName,
-        'position': this.connectedUser.wishlist.length + 1
-      };
-      connectedUser.wishlist.push(studentWish);
+  }
 
-      this.userService.updateUser(connectedUser.id, { 'wish_list': connectedUser.wishlist}).subscribe(
-        () => {
-          this.notifications.success(studentWish.name + ' a été ajouté à la wishlist', '', NOTIF_PARAMS);
-        }, () => {
-          this.notifications.error('Erreur lors de l\'ajout à la wishlist', '', NOTIF_PARAMS);
-        }
-      );
-    } else {
-      const type = this.connectedUser.userType === AccountType.COMPANY ? 'ce candidat' : 'cette entreprise';
-      this.notifications.warn('Vous ne pouvez ajouter ' + type + ' car il est déjà présent dans votre liste de souhait.', '', NOTIF_PARAMS);
-    }
+  remove(user: User) {
+    delete this.connectedUser.wishlist[0][user.id];
+    this.userService.updateUser(this.connectedUser.id, {'wish_list': this.connectedUser.wishlist}).subscribe(
+      () => {
+        this.notifications.success(user.displayName + ' a été supprimé de la wishlist', '', NOTIF_PARAMS);
+        this.cookieService.set('user', JSON.stringify(this.connectedUser));
+      }
+    );
   }
 
   openDialog(user: User) {

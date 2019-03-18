@@ -5,6 +5,15 @@ import {SharedService} from '../services/shared.service';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {NotificationsService} from 'angular2-notifications';
 import {CookieService} from 'ngx-cookie-service';
+import * as _ from 'lodash';
+import {AccountType} from '../enums/account-type.enum';
+
+const NOTIF_PARAMS = {
+  timeOut: 6000,
+  showProgressBar: false,
+  pauseOnHover: true,
+  clickToClose: true
+};
 
 interface DialogData {
   user: User;
@@ -20,9 +29,9 @@ interface DialogData {
 })
 export class StudentInfoComponent implements OnInit {
 
-  pdfSrc = '/src/assets/attestation_CVEC.pdf';
+  public connectedUser: User;
 
-  connectedUser: User;
+  pdfSrc = '/src/assets/attestation_CVEC.pdf';
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -32,34 +41,44 @@ export class StudentInfoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
   }
 
   addToWishList() {
-    this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
+    const connectedUser = this.connectedUser;
     let alreadyAdded = false;
 
-    this.connectedUser.wishlist.forEach((wish) => {
-      if (wish.id === this.data.user.id) {
+    connectedUser.wishlist.forEach((wish) => {
+      if (!_.isNil(wish[this.data.user.id])) {
         alreadyAdded = true;
       }
     });
 
     if (!alreadyAdded) {
-      const studentWish = {
-        'id': this.data.user.id,
-        'name': this.data.user.displayName,
-        'position': this.connectedUser.wishlist.length + 1
-      };
-      this.connectedUser.wishlist.push(studentWish);
+      connectedUser.wishlist[0][this.data.user.id] = connectedUser.wishlist.length + 1;
 
-      this.userService.updateUser(this.connectedUser.id, { 'wish_list': this.connectedUser.wishlist}).subscribe(
+      this.userService.updateUser(connectedUser.id, { 'wish_list': connectedUser.wishlist}).subscribe(
         () => {
-          this.notifications.success(studentWish.name + ' a été ajouté à la wishlist', '');
+          this.notifications.success(this.data.user.displayName + ' a été ajouté à la wishlist', '', NOTIF_PARAMS);
+          this.cookieService.set('user', JSON.stringify(connectedUser));
         }, () => {
-          this.notifications.error('Erreur lors de l\'ajout à la wishlist', '');
+          this.notifications.error('Erreur lors de l\'ajout à la wishlist', '', NOTIF_PARAMS);
         }
       );
+    } else {
+      const type = connectedUser.userType === AccountType.COMPANY ? 'ce candidat' : 'cette entreprise';
+      this.notifications.warn('Vous ne pouvez ajouter ' + type + ' car il est déjà présent dans votre liste de souhait.', '', NOTIF_PARAMS);
     }
+  }
+
+  remove() {
+    delete this.connectedUser.wishlist[0][this.data.user.id];
+    this.userService.updateUser(this.connectedUser.id, {'wish_list': this.connectedUser.wishlist}).subscribe(
+      () => {
+        this.notifications.success(this.data.user.displayName + ' a été supprimé de la wishlist', '', NOTIF_PARAMS);
+        this.cookieService.set('user', JSON.stringify(this.connectedUser));
+      }
+    );
   }
 
 }

@@ -10,6 +10,8 @@ export class SharedService {
 
   private _isConnected: boolean;
 
+  private _userList = [];
+
   constructor() { }
 
   get baseUrl(): string {
@@ -22,5 +24,14 @@ export class SharedService {
 
   set isConnected(value: boolean) {
     this._isConnected = value;
+  }
+
+
+  get userList(): any[] {
+    return this._userList;
+  }
+
+  set userList(value: any[]) {
+    this._userList = value;
   }
 }
