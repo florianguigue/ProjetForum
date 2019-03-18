@@ -9,6 +9,7 @@ import {NotificationsService} from 'angular2-notifications';
 import {User} from '../model/user';
 import {AccountType} from '../enums/account-type.enum';
 import * as _ from 'lodash';
+import {CookieService} from 'ngx-cookie-service';
 
 const NOTIF_PARAMS = {
   timeOut: 6000,
@@ -26,6 +27,7 @@ export class AdministrationComponent implements OnInit {
   settingsForm: FormGroup;
   searchForm: FormGroup;
   submitted = false;
+  connectedUser: User;
 
   public settings: Settings;
   public users = [];
@@ -33,7 +35,7 @@ export class AdministrationComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private sharedService: SharedService,
+    private cookieService: CookieService,
     private route: ActivatedRoute,
     private settingsService: SettingsService,
     private formBuilder: FormBuilder,
@@ -43,7 +45,7 @@ export class AdministrationComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
     this.userService.getUserList().subscribe(
       (response) => {
         response.forEach((user) => {
@@ -51,11 +53,11 @@ export class AdministrationComponent implements OnInit {
           this.users.push(this.user);
         });
       }, () => {
-        const userType = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'candidats' : 'enterprises';
+        const userType = this.connectedUser.userType === AccountType.COMPANY ? 'candidats' : 'enterprises';
         this.notifications.error('Erreur lors de la récupération des ' + userType, '', NOTIF_PARAMS);
       }
     );
-    
+
     this.settings = new Settings(0, 0, 0, 0);
 
     this.settingsForm = this.formBuilder.group({

@@ -12,9 +12,8 @@ import {SharedService} from '../services/shared.service';
 export class NavigationComponent implements OnInit {
 
   constructor(
-    private cookieService: CookieService,
-    private router: Router,
-    public sharedService: SharedService
+    public cookieService: CookieService,
+    private router: Router
   ) {
   }
 

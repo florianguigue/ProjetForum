@@ -8,6 +8,7 @@ import {User} from '../model/user';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {StudentInfoComponent} from '../student-info/student-info.component';
+import {CookieService} from 'ngx-cookie-service';
 
 const NOTIF_PARAMS = {
   timeOut: 6000,
@@ -26,26 +27,30 @@ export class UserListComponent implements OnInit {
   public users = [];
   private user: User;
 
+  connectedUser: User;
+
   constructor(
     private router: Router,
     private userService: UserService,
     private notifications: NotificationsService,
     private sharedService: SharedService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private cookieService: CookieService
   ) { }
 
   ngOnInit() {
+    this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
     this.userService.getUserList().subscribe(
       (response) => {
         response.forEach((user) => {
           this.user = new User(user._id, user.email, user.account, user.user_type, user.wish_list);
           this.users.push(this.user);
         });
-        if (this.sharedService.connectedUser.userType !== AccountType.ADMIN) {
+        if (this.connectedUser.userType !== AccountType.ADMIN) {
           this.reduceListForSpecificUserType();
         }
       }, () => {
-        const userType = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'candidats' : 'enterprises';
+        const userType = this.connectedUser.userType === AccountType.COMPANY ? 'candidats' : 'enterprises';
         this.notifications.error('Erreur lors de la récupération des ' + userType, '', NOTIF_PARAMS);
       }
     );
@@ -53,13 +58,13 @@ export class UserListComponent implements OnInit {
 
   reduceListForSpecificUserType() {
     _.remove(this.users, (user) => {
-      const userType = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'Company' : 'Applicant';
+      const userType = this.connectedUser.userType === AccountType.COMPANY ? 'Company' : 'Applicant';
         return user.userType === userType;
     });
   }
 
   addToWishlist(user: User) {
-    const connectedUser = this.sharedService.connectedUser;
+    const connectedUser = this.connectedUser;
     let alreadyAdded = false;
 
     connectedUser.wishlist.forEach((wish) => {
@@ -72,7 +77,7 @@ export class UserListComponent implements OnInit {
       const studentWish = {
         'id': user.id,
         'name': user.displayName,
-        'position': this.sharedService.connectedUser.wishlist.length + 1
+        'position': this.connectedUser.wishlist.length + 1
       };
       connectedUser.wishlist.push(studentWish);
 
@@ -84,7 +89,7 @@ export class UserListComponent implements OnInit {
         }
       );
     } else {
-      const type = this.sharedService.connectedUser.userType === AccountType.COMPANY ? 'ce candidat' : 'cette entreprise';
+      const type = this.connectedUser.userType === AccountType.COMPANY ? 'ce candidat' : 'cette entreprise';
       this.notifications.warn('Vous ne pouvez ajouter ' + type + ' car il est déjà présent dans votre liste de souhait.', '', NOTIF_PARAMS);
     }
   }

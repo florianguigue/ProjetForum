@@ -71,14 +71,13 @@ export class LoginComponent implements OnInit {
           });
         } else {
           const user = response.user;
-          this.sharedService.connectedUser = new User(user._id, user.email, user.account, user.user_type, user.wish_list);
           this.sharedService.isConnected = true;
 
-          this.cookieService.set('id', this.sharedService.connectedUser.id);
           this.cookieService.set('token', response.token);
+          this.cookieService.set('user', JSON.stringify(response.user));
 
-          switch (this.sharedService.connectedUser.userType) {
-            case AccountType.ADMIN:
+          switch (user.user_type) {
+            case AccountType.ADMIN.toString():
               this.router.navigate(['administration']);
               break;
             case AccountType.COMPANY:

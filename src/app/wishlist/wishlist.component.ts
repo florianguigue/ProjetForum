@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, CdkDropList } from '@angular/cdk/drag-drop';
 import {UserService} from '../services/user.service';
-import {SharedService} from '../services/shared.service';
 import * as _ from 'lodash';
+import {CookieService} from 'ngx-cookie-service';
+import {User} from '../model/user';
 
 @Component({
   selector: 'app-wishlist',
@@ -13,13 +14,16 @@ export class WishlistComponent implements OnInit {
 
   public wishlist = [];
 
+  connectedUser: User;
+
   constructor(
     private userService: UserService,
-    private sharedService: SharedService
+    private cookieService: CookieService
   ) { }
 
   ngOnInit() {
-    this.userService.getUser('5c8906069afe311678ee69f2'/*this.sharedService.connectedUser.id*/).subscribe(
+    this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
+    this.userService.getUser(this.connectedUser.id).subscribe(
       (user) => {
         this.wishlist = user.wish_list;
       }
@@ -64,6 +68,6 @@ export class WishlistComponent implements OnInit {
   }
 
   validWishlist() {
-    this.userService.updateUser(this.sharedService.connectedUser.id, { 'wish_list': this.wishlist}).subscribe();
+    this.userService.updateUser(this.connectedUser.id, { 'wish_list': this.wishlist}).subscribe();
   }
 }

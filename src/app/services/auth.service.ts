@@ -13,11 +13,6 @@ export class AuthService {
   ) { }
 
   public isAuthenticated(): boolean {
-    if (!this.cookieService.check('token')) {
-      return false;
-    } else {
-      this.userService.addLoggedUser();
-      return true;
-    }
+    return this.cookieService.check('token');
   }
 }
