@@ -51,44 +51,25 @@ html {
   color: #009FDF;
   cursor: pointer;
 }
-.student-info-page .left {
+.account-page label {
+  color: #009FDF;
+}
+.account-page small.label-error {
+  color: #DC3545;
+}
+.account-page .save {
   text-align: center;
 }
-.student-info-page .left .jumbotron {
-  background-color: transparent;
-}
-.student-info-page .left .jumbotron .picture {
-  object-fit: cover;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  min-height: 0;
-  min-width: 0;
-}
-.student-info-page .left .jumbotron h2 {
-  font-family: "EurostileT-Bold", sans-serif;
-  font-size: 40px;
-}
-.student-info-page .left .jumbotron .button {
-  display: flex;
-}
-.student-info-page .left .jumbotron .button button {
-  width: 100%;
-  border: none;
-  cursor: pointer;
-}
-.student-info-page .left .jumbotron .button button.add {
+.account-page .save button {
+  margin-left: auto;
+  margin-right: auto;
   background-color: #009FDF;
+  border: none;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
 }
-.student-info-page .left .jumbotron .button button.remove {
-  background-color: #E87722;
-}
-.student-info-page .left .jumbotron .button button i {
+.account-page .save button i {
   margin-right: 10px;
 }
-.student-info-page .right {
-  background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
-  background-size: cover;
-  height: 100vh;
-}
-/*# sourceMappingURL=student-info.css.map */
+/*# sourceMappingURL=account.css.map */

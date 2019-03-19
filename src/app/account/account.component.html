@@ -1,0 +1,40 @@
+<div class="container-fluid account-page">
+  <div class="row"><h2>Créer un compte</h2></div>
+  <div class="account">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div class="form-row">
+          <label>Type de compte</label>
+          <select formControlName="userType" class="form-control" id="exampleFormControlSelect1">
+            <option *ngFor="let userType of userTypes">{{userType}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control" placeholder="Email"
+                 formControlName="email">
+          <small class="label-error" *ngIf="userF.email.errors && userF.email.value != ''">Email non valide</small>
+        </div>
+      </div>
+      <div *ngIf="userF.userType.value.localeCompare('Applicant') === 0" class="form-group">
+        <div class="form-row">
+          <label for="first-name">Prénom</label>
+          <input type="text" id="first-name" class="form-control" placeholder="Prénom"
+                 formControlName="prenom">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <label for="last-name">Nom</label>
+          <input type="text" id="last-name" class="form-control" placeholder="Nom"
+                 formControlName="name">
+        </div>
+      </div>
+      <div class="save">
+        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>

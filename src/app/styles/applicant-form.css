@@ -39,6 +39,9 @@ html {
 .full-width-dialog mat-dialog-container {
   padding: 0;
 }
+.dialog-account {
+  width: 400px;
+}
 .close {
   float: left;
 }
@@ -65,7 +68,7 @@ html {
   color: #fbfbfb;
 }
 .applicant-page .applicant {
-  background: linear-gradient(#E1E1E1, #fbfbfb);
+  background: linear-gradient(#E1E1E1, white);
   width: 100%;
 }
 .applicant-page .applicant form {
@@ -88,8 +91,28 @@ html {
   height: 100%;
 }
 .applicant-page .applicant form .wishlist > div button {
-  background: none;
+  cursor: pointer;
+  background: #009FDF;
   border: none;
-  color: #009FDF;
+  align-items: center;
+  color: white;
+}
+.applicant-page .applicant form .wishlist > div button:hover {
+  opacity: 0.9;
+}
+.applicant-page .applicant form .wishlist > div button .fa-list-ol {
+  margin-right: 10px;
+}
+.applicant-page .applicant form .save {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.applicant-page .applicant form .save button {
+  background-color: #E87722;
+  border: none;
+}
+.applicant-page .applicant form .save button i {
+  margin-right: 10px;
 }
 /*# sourceMappingURL=applicant-form.css.map */

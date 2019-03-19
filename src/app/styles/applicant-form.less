@@ -20,7 +20,7 @@
   }
 
   .applicant {
-    background: linear-gradient(@light-grey, @white-grey);
+    background: linear-gradient(@light-grey, white);
     width: 100%;
 
     form {
@@ -46,9 +46,34 @@
           height: 100%;
 
           button {
-            background: none;
+            cursor: pointer;
+            background: @blue-polytech;
             border: none;
-            color: @blue-polytech;
+            align-items: center;
+            color: white;
+
+            &:hover {
+              opacity: .9;
+            }
+
+            .fa-list-ol{
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      .save {
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+
+        button {
+          background-color: @orange-polytech;
+          border: none;
+
+          i {
+            margin-right: 10px;
           }
         }
       }

@@ -39,6 +39,9 @@ html {
 .full-width-dialog mat-dialog-container {
   padding: 0;
 }
+.dialog-account {
+  width: 400px;
+}
 .close {
   float: left;
 }
@@ -187,6 +190,7 @@ html {
 .planning-page .planning .cards-wrapper .cards .meeting .card .info p.name {
   font-family: "EurostileT-Bold", sans-serif;
   font-size: 40px;
+  font-size: 30px;
   text-align: center;
   justify-content: center;
   display: flex;

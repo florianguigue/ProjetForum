@@ -1,9 +1,9 @@
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
   <div class="example-box" *ngFor="let wish of wishlist" cdkDrag>{{wish.name}}
-    <button class="btn btn-primary" (click)="remove(wish)">
+    <button class="btn btn-primary remove" (click)="remove(wish)">
       <i class="fa fa-user-minus"></i>
     </button>
   </div>
 </div>
 
-<button mat-dialog-close class="btn btn-primary" (click)="validWishlist()">Valider</button>
+<button mat-dialog-close class="btn btn-primary validate" (click)="validWishlist()">Valider</button>

@@ -39,6 +39,9 @@ html {
 .full-width-dialog mat-dialog-container {
   padding: 0;
 }
+.dialog-account {
+  width: 400px;
+}
 .close {
   float: left;
 }
@@ -64,6 +67,10 @@ html {
   box-shadow: 0 0 4px 0 #ababab;
   background: linear-gradient(white, #fbfbfb);
   padding: 25px;
+}
+.administration-page .administration .settings .label-error {
+  color: #DC3545;
+  font-size: small;
 }
 .administration-page .administration .settings label {
   color: #009FDF;
@@ -117,10 +124,10 @@ html {
     justify-content: center;
   }
 }
-.administration-page .administration .table-administration form.search-form .add a {
+.administration-page .administration .table-administration form.search-form .add button {
   color: #009FDF;
 }
-.administration-page .administration .table-administration form.search-form .add a:hover {
+.administration-page .administration .table-administration form.search-form .add button:hover {
   text-decoration: none;
 }
 .administration-page .administration .table-administration form.search-form .add .fa-plus-circle {

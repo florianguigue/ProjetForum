@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SharedService} from '../services/shared.service';
 import {SettingsService} from '../services/settings.service';
 import {Settings} from '../model/settings';
 import {UserService} from '../services/user.service';
@@ -10,6 +9,8 @@ import {User} from '../model/user';
 import {AccountType} from '../enums/account-type.enum';
 import * as _ from 'lodash';
 import {CookieService} from 'ngx-cookie-service';
+import {MatDialog} from '@angular/material';
+import {AccountComponent} from '../account/account.component';
 
 const NOTIF_PARAMS = {
   timeOut: 6000,
@@ -39,6 +40,7 @@ export class AdministrationComponent implements OnInit {
     private route: ActivatedRoute,
     private settingsService: SettingsService,
     private formBuilder: FormBuilder,
+    private dialog: MatDialog,
     private userService: UserService,
     private notifications: NotificationsService
   ) {
@@ -86,9 +88,11 @@ export class AdministrationComponent implements OnInit {
     this.submitted = true;
 
     if (this.settingsForm.invalid) {
+      this.notifications.error('Formulaire invalide', '', NOTIF_PARAMS);
       return;
     } else {
-      this.settingsService.updateSettings(this.settingsForm.controls);
+      this.settingsService.updateSettings(this.settingsForm.controls).subscribe();
+      this.notifications.success('Modifications enregistrées avec succès', '', NOTIF_PARAMS);
     }
   }
 
@@ -110,7 +114,23 @@ export class AdministrationComponent implements OnInit {
   }
 
   plannify() {
-    return;
+    this.settingsService.deleteAll().subscribe(res => {
+      this.settingsService.plannify().subscribe(
+        result => this.notifications.success('Planning généré avec succès', '', NOTIF_PARAMS)
+      );
+    });
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(AccountComponent, {
+      panelClass : 'dialog-account'
+    });
+
+    document.getElementsByTagName('html')[0].classList.add('overflow-hidden');
+
+    dialogRef.afterClosed().subscribe(result => {
+      document.getElementsByTagName('html')[0].classList.remove('overflow-hidden');
+    });
   }
 }
 

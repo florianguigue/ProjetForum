@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import {SharedService} from '../services/shared.service';
+import {AccountType} from '../enums/account-type.enum';
+import {UserService} from '../services/user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -11,8 +13,11 @@ import {SharedService} from '../services/shared.service';
 
 export class NavigationComponent implements OnInit {
 
+  public isAdmin = false;
+
   constructor(
     public cookieService: CookieService,
+    public userService: UserService,
     private router: Router
   ) {
   }
@@ -25,6 +30,9 @@ export class NavigationComponent implements OnInit {
         document.getElementsByTagName('nav')[0].classList.remove('bg-white');
       }
     });
+
+    const user = this.userService.createUser(this.cookieService.get('user'));
+    this.isAdmin = user.userType.localeCompare(AccountType.ADMIN) === 0;
   }
 
   disconnect() {

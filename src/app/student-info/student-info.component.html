@@ -5,22 +5,27 @@
   <div class="row">
     <div class="col-lg-6 left">
       <div class="jumbotron">
-        <h1 class="display-4">{{data.user.displayName}}</h1>
+        <img class="picture" src="../../assets/images/CGI-Logo.jpg" alt="logo"/>
+        <h2>{{data.user.displayName}}</h2>
         <p class="load">{{data.user.getAccount.description}}</p>
-        <hr class="my-4"/>
+        <hr/>
         <div class="button">
-          <button mat-button><i class="fa fa-download"></i>
+          <button class="col-lg-6" mat-button><i class="fa fa-download"></i>
             Télécharger le CV
           </button>
-          <div [ngSwitch]="connectedUser.wishlist[0][data.user.id]">
-            <button *ngSwitchCase="undefined" mat-button (click)="addToWishList()"><i class="fa fa-plus"></i>Ajouter à mes rendez-vous</button>
-            <button *ngSwitchDefault mat-button (click)="remove()"><i class="fa fa-plus"></i>Retirer de mes rendez-vous</button>
+          <div class="col-lg-6" [ngSwitch]="connectedUser.wishlist[0][data.user.id]">
+            <button class="btn btn-primary add" *ngSwitchCase="undefined" mat-button (click)="addToWishList()"><i
+              class="fa fa-plus"></i>Ajouter
+            </button>
+            <button class="btn btn-primary remove" *ngSwitchDefault mat-button (click)="remove()">
+              <i class="fa fa-minus"></i>Retirer
+            </button>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-6 right">
-      <simple-pdf-viewer [src]="pdfSrc"></simple-pdf-viewer>
+      <simple-pdf-viewer [src]="pdfSrc" *ngIf="connectedUser.userType == 'Company'"></simple-pdf-viewer>
     </div>
   </div>
 </div>

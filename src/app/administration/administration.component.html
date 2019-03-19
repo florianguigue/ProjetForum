@@ -9,9 +9,11 @@
               <div class="row"><input type="search" class="form-control" placeholder="Rechercher"/></div>
             </div>
             <div class="add col-lg-6">
-              <a href="">
-                <div class="row"><i class="fas fa-plus-circle"></i>Ajouter un utilisateur</div>
-              </a>
+              <button class="btn btn-primary" mat-raised-button (click)="openDialog()">
+                <div class="row"><i
+                  class="fas fa-plus-circle"></i>Ajouter un utilisateur
+                </div>
+              </button>
             </div>
           </form>
           <table class="table-striped">
@@ -48,7 +50,7 @@
                      [(ngModel)]="settings.time_meeting">
               <small id="timehelp" class="form-text text-muted">0.5 pour une demi heure
               </small>
-              <div *ngIf="settingsF.duration.errors">Valeur non valide</div>
+              <div class="label-error" *ngIf="settingsF.duration.errors">Valeur non valide</div>
             </div>
             <div class="form-group">
               <label for="start-time">Heure de début</label>
@@ -58,7 +60,7 @@
                      [(ngModel)]="settings.start_time">
               <small id="startHelp" class="form-text text-muted">Heure de début des entretiens
               </small>
-              <div *ngIf="settingsF.startTime.errors">Valeur non valide</div>
+              <div class="label-error" *ngIf="settingsF.startTime.errors">Valeur non valide</div>
             </div>
             <div class="form-group">
               <label for="start-time">Heure de fin</label>
@@ -68,7 +70,7 @@
                      [(ngModel)]="settings.end_time">
               <small id="endHelp" class="form-text text-muted">Heure de fin des entretiens
               </small>
-              <div *ngIf="settingsF.endTime.errors">Valeur non valide</div>
+              <div class="label-error" *ngIf="settingsF.endTime.errors">Valeur non valide</div>
             </div>
             <div class="form-group">
               <label for="max-rank">Souhaits maximum</label>
@@ -78,7 +80,7 @@
                      [(ngModel)]="settings.max_rank">
               <small id="maxRankHelp" class="form-text text-muted">Nombre maximum de souhaits
               </small>
-              <div *ngIf="settingsF.maxRank.errors">Valeur non valide</div>
+              <div class="label-error" *ngIf="settingsF.maxRank.errors">Valeur non valide</div>
             </div>
             <button type="submit" class="btn btn-primary save"><i class="fas fa-save"></i>Enregistrer</button>
           </form>

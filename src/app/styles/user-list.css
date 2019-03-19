@@ -39,6 +39,9 @@ html {
 .full-width-dialog mat-dialog-container {
   padding: 0;
 }
+.dialog-account {
+  width: 400px;
+}
 .close {
   float: left;
 }

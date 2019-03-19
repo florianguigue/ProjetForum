@@ -24,6 +24,7 @@ import { ApplicantFormComponent } from './applicant-form/applicant-form.componen
 import {CookieService} from 'ngx-cookie-service';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {AuthGuardService} from './services/auth-guard.service';
     WishlistComponent,
     PlanningAdministrationComponent,
     UserListComponent,
-    ApplicantFormComponent
+    ApplicantFormComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import {AuthGuardService} from './services/auth-guard.service';
   bootstrap: [AppComponent],
   entryComponents: [
     StudentInfoComponent,
-    WishlistComponent
+    WishlistComponent,
+    AccountComponent
   ]
 })
 export class AppModule { }

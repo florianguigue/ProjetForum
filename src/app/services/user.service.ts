@@ -30,22 +30,27 @@ export class UserService {
 
   public getUserList(): Observable<any> {
     const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
-    return this.httpClient.get(this.sharedService.baseUrl + '/users', { headers: headers});
+    return this.httpClient.get(this.sharedService.baseUrl + '/users', {headers: headers});
   }
 
   public getUser(id: string): Observable<any> {
     const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
-    return this.httpClient.get(this.sharedService.baseUrl + /users/ + id, { headers: headers});
+    return this.httpClient.get(this.sharedService.baseUrl + /users/ + id, {headers: headers});
   }
 
   public updateUser(id: string, body: object): Observable<any> {
     const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
-    return this.httpClient.put(this.sharedService.baseUrl + /users/ + id, body, { headers: headers});
+    return this.httpClient.put(this.sharedService.baseUrl + /users/ + id, body, {headers: headers});
   }
 
   public deleteUser(id: string): Observable<any> {
     const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
-    return this.httpClient.delete(this.sharedService.baseUrl + /users/ + id, { headers: headers});
+    return this.httpClient.delete(this.sharedService.baseUrl + /users/ + id, {headers: headers});
+  }
+
+  public createUserWS(body: object): Observable<any> {
+    const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
+    return this.httpClient.post(this.sharedService.baseUrl + '/users', body, {headers: headers});
   }
 
   public createUser(u: string): User {

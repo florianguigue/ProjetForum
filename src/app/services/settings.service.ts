@@ -23,7 +23,7 @@ export class SettingsService {
 
   public getSettings(): Observable<any> {
     const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
-    return this.httpClient.get(this.sharedService.baseUrl + '/settings', { headers: headers});
+    return this.httpClient.get(this.sharedService.baseUrl + '/settings', {headers: headers});
   }
 
   public updateSettings(values) {
@@ -36,6 +36,16 @@ export class SettingsService {
       max_rank: +values.maxRank.value
     };
 
-    return this.httpClient.put( this.sharedService.baseUrl + '/settings', settings, { headers: headers });
+    return this.httpClient.put(this.sharedService.baseUrl + '/settings', settings, {headers: headers});
+  }
+
+  plannify() {
+    const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
+    return this.httpClient.get(this.sharedService.baseUrl + '/meetings/plannify', {headers: headers});
+  }
+
+  deleteAll() {
+    const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
+    return this.httpClient.delete(this.sharedService.baseUrl + '/meetings', {headers: headers});
   }
 }

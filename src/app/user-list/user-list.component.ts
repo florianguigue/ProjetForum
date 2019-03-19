@@ -41,7 +41,6 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
-    console.log(this.connectedUser);
     this.userService.getUserList().subscribe(
       (response) => {
         response.forEach((user) => {
@@ -67,7 +66,6 @@ export class UserListComponent implements OnInit {
 
   addToWishlist(user: User) {
     const connectedUser = this.connectedUser;
-    console.log(connectedUser);
 
 
     connectedUser.wishlist[0][user.id] = Object.keys(connectedUser.wishlist[0]).length + 1;

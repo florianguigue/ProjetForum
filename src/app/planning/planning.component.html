@@ -4,64 +4,24 @@
       <div class="banner"><h2>Mes rendez-vous</h2></div>
       <div class="cards-wrapper offset-lg-2 col-lg-7 col-11">
         <div class="cards">
-          <div class="meeting">
+          <div class="meeting" *ngFor="let meeting of planning">
             <div class="row">
               <h2 class="date col-lg-3">
-                <div class="hour">10h</div>
+                <div class="hour">{{meeting.start_date|date: 'HH:mm'}}</div>
               </h2>
               <div class="card col-lg-9">
                 <div class="row">
                   <div class="portrait-wrapper col-md-4">
-                    <img src="../../assets/images/pexels-photo-614810.jpeg" alt="portrait" class="portrait"/>
+                    <img src="../../assets/images/CGI-Logo.jpg" alt="portrait" class="portrait"/>
                   </div>
                   <div class="info col-md-8">
                     <div class="basic col-md-7">
-                      <p class="name">Name</p>
-                      <p class="room">Salle 16</p>
+                      <p *ngIf="userType.localeCompare('Applicant') === 0" class="name">{{meeting.company.displayName}}</p>
+                      <p *ngIf="userType.localeCompare('Company') === 0"
+                         class="name">{{meeting.applicant.prenom}}&nbsp;{{meeting.applicant.name}} ok</p>
+                      <p class="room">{{meeting.room}}</p>
                     </div>
-                    <a href="" class="link col-md-5">Voir plus</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="meeting">
-            <div class="row">
-              <h2 class="date col-lg-3">
-                <div class="hour">10h30</div>
-              </h2>
-              <div class="card col-lg-9">
-                <div class="row">
-                  <div class="portrait-wrapper col-md-4">
-                    <img src="../../assets/images/pexels-photo-1542103.jpeg" alt="portrait" class="portrait"/>
-                  </div>
-                  <div class="info col-md-8">
-                    <div class="basic col-md-7">
-                      <p class="name">Name</p>
-                      <p class="room">Salle 16</p>
-                    </div>
-                    <a href="" class="link col-md-5">Voir plus</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="meeting">
-            <div class="row">
-              <h2 class="date col-lg-3">
-                <div class="hour">10h</div>
-              </h2>
-              <div class="card col-lg-9">
-                <div class="row">
-                  <div class="portrait-wrapper col-md-4">
-                    <img src="../../assets/images/pexels-photo.jpg" alt="portrait" class="portrait"/>
-                  </div>
-                  <div class="info col-md-8">
-                    <div class="basic col-md-7">
-                      <p class="name">Name</p>
-                      <p class="room">Salle 16</p>
-                    </div>
-                    <a href="" class="link col-md-5">Voir plus</a>
+                    <button mat-raised-button (click)="openDialog(meeting.company)" class="btn more col-md-5">Voir plus</button>
                   </div>
                 </div>
               </div>
