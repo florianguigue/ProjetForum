@@ -14,13 +14,13 @@
           <a class="nav-link" [routerLink]="['/administration']" *ngIf="cookieService.check('user')">Administration</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/users']" *ngIf="cookieService.check('user')">Candidats</a>
+          <a class="nav-link" [routerLink]="['/users']" *ngIf="cookieService.check('user') && !isAdmin">{{userList}}</a>
         </li>
         <li class="nav-item" [ngSwitch]="isAdmin" *ngIf="cookieService.check('user')">
           <a class="nav-link" *ngSwitchCase="false" [routerLink]="['/planning']">Planning</a>
           <a class="nav-link" *ngSwitchDefault [routerLink]="['/planning-administration']">Planning</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="cookieService.check('user')">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
             <img src="../../assets/images/default_male.jpg">

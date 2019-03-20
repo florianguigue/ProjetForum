@@ -6,6 +6,7 @@ import {User} from '../model/user';
 import {CookieService} from 'ngx-cookie-service';
 import {UserService} from '../services/user.service';
 import {NotificationsService} from 'angular2-notifications';
+import {AccountType} from '../enums/account-type.enum';
 
 const NOTIF_PARAMS = {
   timeOut: 6000,
@@ -16,14 +17,15 @@ const NOTIF_PARAMS = {
 
 @Component({
   selector: 'app-applicant-form',
-  templateUrl: './applicant-form.component.html',
+  templateUrl: './edit-account.component.html',
   styleUrls: ['../styles/applicant-form.css']
 })
-export class ApplicantFormComponent implements OnInit {
+export class EditAccountComponent implements OnInit {
 
   userForm: FormGroup;
 
   public user: User;
+  public isCompany: boolean;
 
   constructor(
     private matDialog: MatDialog,
@@ -36,8 +38,9 @@ export class ApplicantFormComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.createUser(this.cookieService.get('user'));
-    console.log(this.user);
+    this.isCompany = AccountType.COMPANY.localeCompare(this.user.userType) === 0;
     this.userForm = this.formBuilder.group({
+      email: [this.user.getEmail, Validators.required],
       name: [this.user.getAccount.name, Validators.required],
       prenom: [this.user.getAccount.prenom, Validators.required],
       description: [this.user.getAccount.description]
@@ -49,20 +52,33 @@ export class ApplicantFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const body = {
-      account: {
+    let account;
+    if (!this.isCompany) {
+      account = {
         prenom: this.userForm.controls.prenom.value,
         name: this.userForm.controls.name.value,
-        description: this.userForm.controls.description.value
-        // @TODO add other fields
-      },
-      wish_list: this.user.wishlist
+        description: this.userForm.controls.description.value,
+        picture: '../../assets/images/pexel.jpg'
+      };
+    } else {
+      account = {
+        name: this.userForm.controls.name.value,
+        description: this.userForm.controls.description.value,
+        picture: '../../assets/images/CGI-Logo.jpg'
+      };
+    }
+
+    const newUser = {
+      email: this.userForm.controls.email.value,
+      account: account,
+      user_type: this.user.userType
     };
-    this.userService.updateUser(this.user.id, body).subscribe(
+
+    this.userService.updateUser(this.user.id, newUser).subscribe(
       (res) => {
         console.log(res);
         this.notifications.success('Les Modifications ont été enregistrées avec succès', '', NOTIF_PARAMS);
-        this.cookieService.set('user',JSON.stringify(this.user));
+        this.cookieService.set('user', JSON.stringify(this.user));
       }
     );
   }

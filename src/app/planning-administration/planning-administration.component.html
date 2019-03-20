@@ -6,7 +6,7 @@
         <table class="meetings col-lg-12">
           <thead>
           <th></th>
-          <th *ngFor="let item of [].constructor(maxMeetings)">xxh</th>
+          <th *ngFor="let hour of hours">xxh</th>
           </thead>
           <tbody>
           <tr class="meeting" *ngFor="let company of companies">
@@ -16,9 +16,9 @@
             <td class="logo-wrapper" *ngFor="let meeting of getPlanningByC(company._id)">
               <img src="../../assets/images/default_male.jpg" alt="portrait" class="portrait"/>
               <p class="name">
-                {{meeting.applicant.account.prenom.substr(1)}}&nbsp;{{meeting.applicant.account.name|titlecase}}
+                {{meeting.applicant.account.prenom.slice(0, 1)|titlecase}}&nbsp;{{meeting.applicant.account.name|uppercase}}
               </p>
-              <p>{{meeting.start_date}}</p>
+              <p>{{meeting.room}}</p>
             </td>
             <td class="logo-wrapper"></td>
           </tr>

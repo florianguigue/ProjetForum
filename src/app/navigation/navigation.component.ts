@@ -14,6 +14,7 @@ import {UserService} from '../services/user.service';
 export class NavigationComponent implements OnInit {
 
   public isAdmin = false;
+  public userList;
 
   constructor(
     public cookieService: CookieService,
@@ -32,6 +33,8 @@ export class NavigationComponent implements OnInit {
     });
 
     const user = this.userService.createUser(this.cookieService.get('user'));
+    this.userList = user.userType.localeCompare(AccountType.COMPANY) === 0 ? 'Candidats' : 'Entreprises';
+    console.log(this.userList);
     this.isAdmin = user.userType.localeCompare(AccountType.ADMIN) === 0;
   }
 

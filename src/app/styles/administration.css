@@ -51,6 +51,9 @@ html {
   color: #009FDF;
   cursor: pointer;
 }
+button {
+  cursor: pointer;
+}
 .administration-page {
   background: url(../../assets/images/background-settings.jpeg) no-repeat center center fixed;
   padding-top: 50px;

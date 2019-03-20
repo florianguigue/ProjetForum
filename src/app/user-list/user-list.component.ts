@@ -28,6 +28,7 @@ export class UserListComponent implements OnInit {
   private user: User;
 
   connectedUser: User;
+  public userList;
 
   constructor(
     private router: Router,
@@ -41,6 +42,7 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
+    this.userList = this.connectedUser.userType.localeCompare(AccountType.COMPANY) === 0 ? 'Candidats' : 'Entreprises';
     this.userService.getUserList().subscribe(
       (response) => {
         response.forEach((user) => {

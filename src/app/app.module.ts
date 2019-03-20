@@ -20,11 +20,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {MatDialogModule} from '@angular/material';
 import {SettingsService} from './services/settings.service';
-import { ApplicantFormComponent } from './applicant-form/applicant-form.component';
+import {EditAccountComponent} from './edit-account/edit-account.component';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
-import { AccountComponent } from './account/account.component';
+import {AccountComponent} from './account/account.component';
+import {EditUserComponent} from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +38,9 @@ import { AccountComponent } from './account/account.component';
     WishlistComponent,
     PlanningAdministrationComponent,
     UserListComponent,
-    ApplicantFormComponent,
-    AccountComponent
+    EditAccountComponent,
+    AccountComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,9 @@ import { AccountComponent } from './account/account.component';
   entryComponents: [
     StudentInfoComponent,
     WishlistComponent,
-    AccountComponent
+    AccountComponent,
+    EditUserComponent
   ]
 })
-export class AppModule { }
+export class AppModule {
+}
