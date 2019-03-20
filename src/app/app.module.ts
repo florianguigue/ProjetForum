@@ -19,7 +19,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {MatDialogModule} from '@angular/material';
 import {SettingsService} from './services/settings.service';
-import {ApplicantFormComponent} from './applicant-form/applicant-form.component';
 import {EditAccountComponent} from './edit-account/edit-account.component';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthService} from './services/auth.service';
@@ -28,7 +27,6 @@ import {AccountComponent} from './account/account.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import {HttpClientModule} from '@angular/common/http';
-import {AccountComponent} from './account/account.component';
 import {EditUserComponent} from './edit-user/edit-user.component';
 
 @NgModule({
