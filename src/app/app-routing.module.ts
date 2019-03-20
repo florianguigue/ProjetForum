@@ -5,7 +5,7 @@ import {AdministrationComponent} from './administration/administration.component
 import {PlanningComponent} from './planning/planning.component';
 import {PlanningAdministrationComponent} from './planning-administration/planning-administration.component';
 import {UserListComponent} from './user-list/user-list.component';
-import {ApplicantFormComponent} from './applicant-form/applicant-form.component';
+import {EditAccountComponent} from './edit-account/edit-account.component';
 import {AuthGuardService} from './services/auth-guard.service';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'planning', component: PlanningComponent, canActivate: [AuthGuardService]},
   { path: 'planning-administration', component: PlanningAdministrationComponent, canActivate: [AuthGuardService]},
   { path: 'users', component: UserListComponent, canActivate: [AuthGuardService]},
-  { path: 'account', component: ApplicantFormComponent, canActivate: [AuthGuardService]}
+  { path: 'account', component: EditAccountComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({

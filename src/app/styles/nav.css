@@ -51,6 +51,9 @@ html {
   color: #009FDF;
   cursor: pointer;
 }
+button {
+  cursor: pointer;
+}
 header nav {
   position: fixed;
   width: 100%;

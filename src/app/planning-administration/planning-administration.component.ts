@@ -39,20 +39,23 @@ export class PlanningAdministrationComponent implements OnInit {
             meeting.start_date, meeting.end_date, meeting.description, meeting.room);
           this.planning.push(newMeeting);
         });
-        this.setMaxMeetings(users.filter((user) => {
-          return user.user_type.localeCompare(AccountType.COMPANY) === 0;
-        }));
       }, (error) => {
 
       });
     });
   }
 
-  setMaxMeetings(companies) {
+  /*setHours() {
+    this.
+    Math.max(...this.planning.map(meeting => meeting.start_date), 0);
     companies.forEach((company) => {
       const meetingSize = this.getPlanningByC(company._id).length;
       this.maxMeetings = meetingSize > this.maxMeetings ? meetingSize : this.maxMeetings;
     });
+  }*/
+
+  getHours() {
+
   }
 
   getPlanningByC(companyId) {

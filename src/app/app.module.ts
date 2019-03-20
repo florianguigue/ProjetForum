@@ -20,6 +20,7 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
 import {MatDialogModule} from '@angular/material';
 import {SettingsService} from './services/settings.service';
 import {ApplicantFormComponent} from './applicant-form/applicant-form.component';
+import {EditAccountComponent} from './edit-account/edit-account.component';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
@@ -27,6 +28,8 @@ import {AccountComponent} from './account/account.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import {HttpClientModule} from '@angular/common/http';
+import {AccountComponent} from './account/account.component';
+import {EditUserComponent} from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +42,9 @@ import {HttpClientModule} from '@angular/common/http';
     WishlistComponent,
     PlanningAdministrationComponent,
     UserListComponent,
-    ApplicantFormComponent,
-    AccountComponent
+    EditAccountComponent,
+    AccountComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -60,8 +64,8 @@ import {HttpClientModule} from '@angular/common/http';
   entryComponents: [
     StudentInfoComponent,
     WishlistComponent,
-    AccountComponent
+    AccountComponent,
+    EditUserComponent
   ]
 })
-export class AppModule {
-}
+export class AppModule { }

@@ -54,49 +54,29 @@ html {
 button {
   cursor: pointer;
 }
-.student-info-page .left {
-  text-align: center;
+.edit-user-form {
+  padding: 40px;
 }
-.student-info-page .left .jumbotron {
-  background-color: transparent;
+.edit-user-form label {
+  color: #009FDF;
 }
-.student-info-page .left .jumbotron .picture {
-  object-fit: cover;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  min-height: 0;
-  min-width: 0;
-}
-.student-info-page .left .jumbotron h2 {
-  font-family: "EurostileT-Bold", sans-serif;
-  font-size: 40px;
-}
-.student-info-page .left .jumbotron .button {
+.edit-user-form .save,
+.edit-user-form .sendPassword {
   display: flex;
-}
-.student-info-page .left .jumbotron .button button {
   width: 100%;
-  border: none;
-  cursor: pointer;
 }
-.student-info-page .left .jumbotron .button button.add {
+.edit-user-form .save button,
+.edit-user-form .sendPassword button {
+  margin-left: auto;
   background-color: #009FDF;
 }
-.student-info-page .left .jumbotron .button button.remove {
-  background-color: #E87722;
-}
-.student-info-page .left .jumbotron .button button i {
+.edit-user-form .save button i,
+.edit-user-form .sendPassword button i {
   margin-right: 10px;
 }
-.student-info-page .right {
-  background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
-  background-size: cover;
-  height: 100vh;
-  padding: 0;
+.edit-user-form .sendPassword button {
+  margin-right: auto;
+  margin-left: auto;
+  background-color: green;
 }
-:host ::ng-deep .ng2-pdf-viewer-container {
-  max-height: 100vh !important;
-  max-width: 100% !important;
-}
-/*# sourceMappingURL=student-info.css.map */
+/*# sourceMappingURL=edit-account.css.map */

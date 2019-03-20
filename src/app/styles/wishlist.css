@@ -51,6 +51,9 @@ html {
   color: #009FDF;
   cursor: pointer;
 }
+button {
+  cursor: pointer;
+}
 .example-list {
   width: 500px;
   max-width: 100%;

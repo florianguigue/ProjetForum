@@ -11,6 +11,8 @@ import * as _ from 'lodash';
 import {CookieService} from 'ngx-cookie-service';
 import {MatDialog} from '@angular/material';
 import {AccountComponent} from '../account/account.component';
+import {EditAccountComponent} from '../edit-account/edit-account.component';
+import {EditUserComponent} from '../edit-user/edit-user.component';
 
 const NOTIF_PARAMS = {
   timeOut: 6000,
@@ -123,7 +125,23 @@ export class AdministrationComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(AccountComponent, {
-      panelClass : 'dialog-account'
+      panelClass: 'dialog-account'
+    });
+
+    document.getElementsByTagName('html')[0].classList.add('overflow-hidden');
+
+    dialogRef.afterClosed().subscribe(result => {
+      document.getElementsByTagName('html')[0].classList.remove('overflow-hidden');
+    });
+  }
+
+  openDialogEdit(user: User) {
+    const component = this.user.userType.localeCompare(AccountType.APPLICANT) === 0 ? EditUserComponent : EditUserComponent;
+    const dialogRef = this.dialog.open(component, {
+      panelClass: 'full-width-dialog',
+      data: {
+        user: user
+      }
     });
 
     document.getElementsByTagName('html')[0].classList.add('overflow-hidden');

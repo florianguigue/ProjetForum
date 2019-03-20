@@ -51,6 +51,9 @@ html {
   color: #009FDF;
   cursor: pointer;
 }
+button {
+  cursor: pointer;
+}
 .planning-administration-page .banner {
   background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
   background-size: cover;

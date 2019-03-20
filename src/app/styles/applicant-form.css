@@ -51,6 +51,9 @@ html {
   color: #009FDF;
   cursor: pointer;
 }
+button {
+  cursor: pointer;
+}
 .applicant-page .banner {
   background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
   background-size: cover;
@@ -115,4 +118,4 @@ html {
 .applicant-page .applicant form .save button i {
   margin-right: 10px;
 }
-/*# sourceMappingURL=applicant-form.css.map */
+/*# sourceMappingURL=edit-account.css.map */

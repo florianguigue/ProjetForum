@@ -51,6 +51,9 @@ html {
   color: #009FDF;
   cursor: pointer;
 }
+button {
+  cursor: pointer;
+}
 .login-page {
   background: url(../../assets/images/background.jpg) no-repeat center center fixed;
   background-size: cover;
