@@ -6,6 +6,8 @@ import {User} from '../model/user';
 import {CookieService} from 'ngx-cookie-service';
 import {UserService} from '../services/user.service';
 import {NotificationsService} from 'angular2-notifications';
+import {FileUploader} from 'ng2-file-upload';
+
 import {AccountType} from '../enums/account-type.enum';
 
 const NOTIF_PARAMS = {
@@ -15,6 +17,8 @@ const NOTIF_PARAMS = {
   clickToClose: true
 };
 
+const URL = 'http://localhost:3000/upload';
+
 @Component({
   selector: 'app-applicant-form',
   templateUrl: './edit-account.component.html',
@@ -23,6 +27,8 @@ const NOTIF_PARAMS = {
 export class EditAccountComponent implements OnInit {
 
   userForm: FormGroup;
+
+  public uploader: FileUploader = new FileUploader({url: URL});
 
   public user: User;
   public isCompany: boolean;
@@ -45,6 +51,14 @@ export class EditAccountComponent implements OnInit {
       prenom: [this.user.getAccount.prenom, Validators.required],
       description: [this.user.getAccount.description]
     });
+  }
+
+  upload() {
+    this.uploader.queue.forEach(
+      (file) => {
+        file.upload();
+      }
+    );
   }
 
   get userF() {

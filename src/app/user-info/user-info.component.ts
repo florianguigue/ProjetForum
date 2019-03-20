@@ -30,8 +30,6 @@ export class UserInfoComponent implements OnInit {
 
   public connectedUser: User;
 
-  pdfSrc = '/src/assets/attestation_CVEC.pdf';
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private cookieService: CookieService,

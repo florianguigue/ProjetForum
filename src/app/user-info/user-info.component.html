@@ -25,7 +25,12 @@
       </div>
     </div>
     <div class="col-lg-6 right">
-      <simple-pdf-viewer [src]="pdfSrc" *ngIf="connectedUser.userType == 'Company'"></simple-pdf-viewer>
+      <pdf-viewer [src]="'http://localhost:3000/getFile/test.pdf'"
+                  [original-size]="false"
+                  [show-all]="true"
+                  style="display: block;"
+
+      ></pdf-viewer>
     </div>
   </div>
 </div>

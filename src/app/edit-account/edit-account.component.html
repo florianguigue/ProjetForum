@@ -29,37 +29,85 @@
                       rows="6" formControlName="description" [(ngModel)]="this.user.getAccount.description"></textarea>
           </div>
           <div class="form-row">
-            <div class="form-group col-lg-6">
+            <div class="form-group col-lg-10">
               <div class="form-row" [ngSwitch]="isCompany">
-                <div *ngSwitchCase="true" class="custom-file col-lg-10">
-                  <input type="file" class="custom-file-input" id="jobs">
-                  <label class="custom-file-label" for="cv">Offre d'emploi</label>
+                <div *ngSwitchCase="true" class="custom-file col-lg-6">
+                  <input type="file" id="offres" ng2FileSelect [uploader]="uploader" multiple/>
+                  <label class="custom-file-label" for="offres">Offres d'alternance</label>
                 </div>
-                <div *ngSwitchDefault class="custom-file col-lg-10">
-                  <input type="file" class="custom-file-input" id="cv">
-                  <label class="custom-file-label" for="cv">CV</label>
+                <div *ngSwitchDefault class="custom-file col-lg-6">
+                  <input type="file" class="custom-file-input" id="cv" ng2FileSelect [uploader]="uploader"/>
                 </div>
+                <div class="col-lg-6">
+                  <h3>File d'attente d'upload</h3>
+                  <p>Taille de la file: {{ uploader?.queue?.length }}</p>
+
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th width="50%">Name</th>
+                      <th>Size</th>
+                      <th>Progress</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let item of uploader.queue">
+                      <td><strong>{{ item?.file?.name }}</strong></td>
+                      <td>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                      <td>
+                        <div class="progress" style="margin-bottom: 0;">
+                          <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                      </td>
+                      <td nowrap>
+                        <button type="button" class="btn btn-danger btn-xs"
+                                (click)="item.remove()">
+                          <span class="glyphicon glyphicon-trash"></span> Remove
+                        </button>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+
+                  <div>
+                    <button type="button" class="btn btn-success btn-s"
+                            (click)="upload()" [disabled]="!uploader.getNotUploadedItems().length">
+                      <span class="glyphicon glyphicon-upload"></span> Upload all
+                    </button>
+                    <button type="button" class="btn btn-danger btn-s"
+                            (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                      <span class="glyphicon glyphicon-trash"></span> Remove all
+                    </button>
+                  </div>
+
+                </div>
+
               </div>
+
               <div class="form-row">
-                <div class="custom-file col-lg-10">
-                  <input type="file" class="custom-file-input" id="picture">
+                <div class="custom-file col-lg-6">
+                  <input type="file" id="picture" ng2FileSelect/>
                   <label class="custom-file-label" for="picture">Image de profil</label>
                 </div>
               </div>
-            </div>
-            <div class="form-group wishlist col-lg-6">
-              <div>
-                <button type="button" class="btn btn-primary" mat-raised-button (click)="openDialog()"><i
-                  class="fas fa-list-ol"></i>Ma wishlist
-                </button>
+
+              <div class="form-row wishlist col-lg-6">
+                <div>
+                  <button type="button" class="btn btn-primary" mat-raised-button (click)="openDialog()"><i
+                    class="fas fa-list-ol"></i>Ma wishlist
+                  </button>
+                </div>
+              </div>
+              <div class="save">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>Enregistrer</button>
               </div>
             </div>
           </div>
-          <div class="save">
-            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>Enregistrer</button>
-          </div>
         </form>
       </div>
-    </div>
-  </div>
-</div>

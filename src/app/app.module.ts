@@ -7,7 +7,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {UserInfoComponent} from './user-info/user-info.component';
 import {SharedService} from './services/shared.service';
-import {SimplePdfViewerModule} from 'simple-pdf-viewer';
 import {UserService} from './services/user.service';
 import {AdministrationComponent} from './administration/administration.component';
 import {NavigationComponent} from './navigation/navigation.component';
@@ -25,6 +24,9 @@ import {CookieService} from 'ngx-cookie-service';
 import {AuthService} from './services/auth.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {AccountComponent} from './account/account.component';
+import {FileUploadModule} from 'ng2-file-upload';
+import {PdfViewerModule} from 'ng2-pdf-viewer';
+import {HttpClientModule} from '@angular/common/http';
 import {EditUserComponent} from './edit-user/edit-user.component';
 
 @NgModule({
@@ -49,8 +51,11 @@ import {EditUserComponent} from './edit-user/edit-user.component';
     MatDialogModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    SimplePdfViewerModule,
-    DragDropModule
+    PdfViewerModule,
+    DragDropModule,
+    FileUploadModule,
+    HttpClientModule
+
   ],
   providers: [SharedService, UserService, SettingsService, CookieService, AuthService, AuthGuardService],
   bootstrap: [AppComponent],
@@ -61,5 +66,4 @@ import {EditUserComponent} from './edit-user/edit-user.component';
     EditUserComponent
   ]
 })
-export class AppModule {
-}
+export class AppModule { }
