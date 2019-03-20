@@ -53,6 +53,11 @@ export class UserService {
     return this.httpClient.post(this.sharedService.baseUrl + '/users', body, {headers: headers});
   }
 
+  public newPassword(user): Observable<any> {
+    const headers = this.httpHeader.headers.append('x-access-token', this.cookieService.get('token'));
+    return this.httpClient.get(this.sharedService.baseUrl + '/users/password/' + user.id, {headers: headers});
+  }
+
   public createUser(u: string): User {
     const user = JSON.parse(u);
     return new User(user._id, user.email, user.account, user.user_type, user.wish_list);

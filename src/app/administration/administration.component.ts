@@ -11,7 +11,6 @@ import * as _ from 'lodash';
 import {CookieService} from 'ngx-cookie-service';
 import {MatDialog} from '@angular/material';
 import {AccountComponent} from '../account/account.component';
-import {EditAccountComponent} from '../edit-account/edit-account.component';
 import {EditUserComponent} from '../edit-user/edit-user.component';
 
 const NOTIF_PARAMS = {

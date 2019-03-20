@@ -44,15 +44,21 @@ html {
 }
 .close {
   float: left;
+  box-shadow: none;
+  border: none;
 }
 .close button {
   background: none;
   border: none;
   color: #009FDF;
+  box-shadow: none;
   cursor: pointer;
 }
 button {
   cursor: pointer;
+}
+button:focus {
+  box-shadow: none;
 }
 .administration-page {
   background: url(../../assets/images/background-settings.jpeg) no-repeat center center fixed;

@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 import {User} from '../model/user';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
-import {StudentInfoComponent} from '../student-info/student-info.component';
+import {UserInfoComponent} from '../user-info/user-info.component';
 import {CookieService} from 'ngx-cookie-service';
 
 const NOTIF_PARAMS = {
@@ -94,7 +94,7 @@ export class UserListComponent implements OnInit {
   }
 
   openDialog(user: User) {
-    const dialogRef = this.dialog.open(StudentInfoComponent, {
+    const dialogRef = this.dialog.open(UserInfoComponent, {
       panelClass: 'full-width-dialog',
       width: '100%',
       data: {

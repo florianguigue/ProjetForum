@@ -60,75 +60,49 @@ button {
 button:focus {
   box-shadow: none;
 }
-header nav {
-  position: fixed;
-  width: 100%;
-  transition: all 0.5s ease;
-  border-bottom: 1px solid transparent;
-  z-index: 2;
-}
-header nav .dropdown {
+.student-info-page .left {
   text-align: center;
 }
-@media (min-width: 1024px) {
-  header nav .dropdown {
-    position: fixed;
-    right: 10px;
-    top: 10px;
-  }
+.student-info-page .left .jumbotron {
+  background-color: transparent;
 }
-@media (max-width: 991.98px) {
-  header nav .dropdown .dropdown-menu {
-    width: 100%;
-    border: none;
-    background-color: #009FDF;
-  }
-  header nav .dropdown .dropdown-menu .dropdown-item {
-    color: white !important;
-  }
-}
-header nav .dropdown img {
+.student-info-page .left .jumbotron .picture {
   object-fit: cover;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   min-height: 0;
   min-width: 0;
-  border: 1px solid #ababab;
 }
-header nav .dropdown-item {
-  color: #606060 !important;
+.student-info-page .left .jumbotron h2 {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
 }
-header nav.bg-white {
-  border-bottom-color: #E1E1E1;
+.student-info-page .left .jumbotron .button {
+  display: flex;
 }
-header nav.bg-white li a {
-  color: #606060;
+.student-info-page .left .jumbotron .button button {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+.student-info-page .left .jumbotron .button button.add {
+  background-color: #009FDF;
+}
+.student-info-page .left .jumbotron .button button.remove {
+  background-color: #E87722;
+}
+.student-info-page .left .jumbotron .button button i {
+  margin-right: 10px;
+}
+.student-info-page .right {
+  background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
+  background-size: cover;
+  height: 100vh;
 }
 @media (max-width: 991.98px) {
-  header nav.bg-white-mobile {
-    background-color: white;
-  }
-  header nav.bg-white-mobile li a {
-    color: #606060;
+  .student-info-page .right {
+    display: none;
   }
 }
-@media (min-width: 1024px) {
-  header nav {
-    background: transparent;
-  }
-}
-@media (min-width: 1024px) {
-  header nav .navbar-brand {
-    background-color: white;
-    padding: 10px;
-    border-radius: 50%;
-  }
-}
-header nav .navbar-brand img {
-  width: 50px;
-}
-header nav li a {
-  color: white;
-}
-/*# sourceMappingURL=nav.css.map */
+/*# sourceMappingURL=user-info.css.map */

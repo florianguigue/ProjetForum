@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {StudentInfoComponent} from './student-info/student-info.component';
+import {UserInfoComponent} from './user-info/user-info.component';
 import {SharedService} from './services/shared.service';
 import {SimplePdfViewerModule} from 'simple-pdf-viewer';
 import {UserService} from './services/user.service';
@@ -31,7 +31,7 @@ import {EditUserComponent} from './edit-user/edit-user.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    StudentInfoComponent,
+    UserInfoComponent,
     AdministrationComponent,
     NavigationComponent,
     PlanningComponent,
@@ -55,7 +55,7 @@ import {EditUserComponent} from './edit-user/edit-user.component';
   providers: [SharedService, UserService, SettingsService, CookieService, AuthService, AuthGuardService],
   bootstrap: [AppComponent],
   entryComponents: [
-    StudentInfoComponent,
+    UserInfoComponent,
     WishlistComponent,
     AccountComponent,
     EditUserComponent

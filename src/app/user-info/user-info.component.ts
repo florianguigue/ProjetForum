@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {User} from '../model/user';
-import {SharedService} from '../services/shared.service';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {NotificationsService} from 'angular2-notifications';
 import {CookieService} from 'ngx-cookie-service';
@@ -24,10 +23,10 @@ interface DialogData {
  */
 @Component({
   selector: 'app-student-info',
-  templateUrl: './student-info.component.html',
-  styleUrls: ['../styles/student-info.css']
+  templateUrl: './user-info.component.html',
+  styleUrls: ['../styles/user-info.css']
 })
-export class StudentInfoComponent implements OnInit {
+export class UserInfoComponent implements OnInit {
 
   public connectedUser: User;
 

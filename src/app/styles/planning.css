@@ -44,15 +44,21 @@ html {
 }
 .close {
   float: left;
+  box-shadow: none;
+  border: none;
 }
 .close button {
   background: none;
   border: none;
   color: #009FDF;
+  box-shadow: none;
   cursor: pointer;
 }
 button {
   cursor: pointer;
+}
+button:focus {
+  box-shadow: none;
 }
 .planning-page .banner {
   background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;

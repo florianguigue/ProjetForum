@@ -32,15 +32,22 @@ html {
 
 .close {
   float: left;
+  box-shadow: none;
+  border: none;
 
   button {
     background: none;
     border: none;
     color: @blue-polytech;
+    box-shadow: none;
     cursor: pointer;
   }
 }
 
 button {
   cursor: pointer;
+
+  &:focus {
+    box-shadow: none;
+  }
 }

@@ -18,7 +18,7 @@ const NOTIF_PARAMS = {
 @Component({
   selector: 'app-applicant-form',
   templateUrl: './edit-account.component.html',
-  styleUrls: ['../styles/applicant-form.css']
+  styleUrls: ['../styles/edit-account.css']
 })
 export class EditAccountComponent implements OnInit {
 

@@ -44,39 +44,84 @@ html {
 }
 .close {
   float: left;
+  box-shadow: none;
+  border: none;
 }
 .close button {
   background: none;
   border: none;
   color: #009FDF;
+  box-shadow: none;
   cursor: pointer;
 }
 button {
   cursor: pointer;
 }
-.edit-user-form {
-  padding: 40px;
+button:focus {
+  box-shadow: none;
 }
-.edit-user-form label {
-  color: #009FDF;
-}
-.edit-user-form .save,
-.edit-user-form .sendPassword {
+.applicant-page .banner {
+  background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
+  background-size: cover;
+  width: 100%;
+  position: fixed;
   display: flex;
+  align-items: center;
+  height: 300px;
+}
+.applicant-page .banner h2 {
+  font-family: "EurostileT-Bold", sans-serif;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  color: #fbfbfb;
+}
+.applicant-page .applicant {
+  background: linear-gradient(#E1E1E1, white);
   width: 100%;
 }
-.edit-user-form .save button,
-.edit-user-form .sendPassword button {
-  margin-left: auto;
-  background-color: #009FDF;
+.applicant-page .applicant form {
+  background-color: white;
+  box-shadow: 0 0 4px 0 #ababab;
+  margin-top: 200px;
+  padding: 40px;
 }
-.edit-user-form .save button i,
-.edit-user-form .sendPassword button i {
+.applicant-page .applicant form label {
+  color: #009FDF;
+}
+.applicant-page .applicant form .custom-file {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.applicant-page .applicant form .wishlist > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.applicant-page .applicant form .wishlist > div button {
+  cursor: pointer;
+  background: #009FDF;
+  border: none;
+  align-items: center;
+  color: white;
+}
+.applicant-page .applicant form .wishlist > div button:hover {
+  opacity: 0.9;
+}
+.applicant-page .applicant form .wishlist > div button .fa-list-ol {
   margin-right: 10px;
 }
-.edit-user-form .sendPassword button {
-  margin-right: auto;
-  margin-left: auto;
-  background-color: green;
+.applicant-page .applicant form .save {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.applicant-page .applicant form .save button {
+  background-color: #E87722;
+  border: none;
+}
+.applicant-page .applicant form .save button i {
+  margin-right: 10px;
 }
 /*# sourceMappingURL=edit-account.css.map */

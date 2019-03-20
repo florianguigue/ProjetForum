@@ -7,7 +7,7 @@
     .jumbotron {
       background-color: transparent;
 
-      .picture{
+      .picture {
         object-fit: cover;
         border-radius: 50%;
         width: 100px;
@@ -48,5 +48,9 @@
     background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
     background-size: cover;
     height: 100vh;
+
+    @media @large {
+      display: none;
+    }
   }
 }

@@ -1,31 +1,82 @@
 @import "imports";
 
-.edit-user-form {
-  padding: 40px;
+.applicant-page {
 
-  label {
-    color: @blue-polytech;
-  }
-
-  .save, .sendPassword {
-    display: flex;
+  .banner {
+    background: url(../../assets/images/planning.jpeg) no-repeat center bottom fixed;
+    background-size: cover;
     width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 300px;
 
-    button {
-      margin-left: auto;
-      background-color: @blue-polytech;
-
-      i {
-        margin-right: 10px;
-      }
+    h2 {
+      .h2-Polytech();
+      text-align: center;
+      width: 100%;
+      color: @white-grey;
     }
   }
 
-  .sendPassword {
-    button {
-      margin-right: auto;
-      margin-left: auto;
-      background-color: green;
+  .applicant {
+    background: linear-gradient(@light-grey, white);
+    width: 100%;
+
+    form {
+      background-color: white;
+      .box-shadow(@dark-grey);
+      margin-top: 200px;
+      padding: 40px;
+
+      label {
+        color: @blue-polytech;
+      }
+
+      .custom-file {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .wishlist {
+        & > div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+
+          button {
+            cursor: pointer;
+            background: @blue-polytech;
+            border: none;
+            align-items: center;
+            color: white;
+
+            &:hover {
+              opacity: .9;
+            }
+
+            .fa-list-ol{
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      .save {
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+
+        button {
+          background-color: @orange-polytech;
+          border: none;
+
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
     }
   }
 }

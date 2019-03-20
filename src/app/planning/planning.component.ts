@@ -6,7 +6,7 @@ import {PlanningService} from '../services/planning.service';
 import {UserService} from '../services/user.service';
 import {CookieService} from 'ngx-cookie-service';
 import * as _ from 'lodash';
-import {StudentInfoComponent} from '../student-info/student-info.component';
+import {UserInfoComponent} from '../user-info/user-info.component';
 import {MatDialog} from '@angular/material';
 
 @Component({
@@ -70,7 +70,7 @@ export class PlanningComponent implements OnInit {
   }
 
   openDialog(user: User) {
-    const dialogRef = this.dialog.open(StudentInfoComponent, {
+    const dialogRef = this.dialog.open(UserInfoComponent, {
       panelClass: 'full-width-dialog',
       width: '100%',
       data: {

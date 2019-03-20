@@ -100,7 +100,7 @@ export class WishlistComponent implements OnInit {
 
     this.userService.updateUser(this.connectedUser.id, {'wish_list': this.connectedUser.wishlist}).subscribe(
       () => {
-        this.notifications.success('La wishlist a été modifié', '', NOTIF_PARAMS);
+        this.notifications.success('La wishlist a été modifiée', '', NOTIF_PARAMS);
         this.cookieService.set('user', JSON.stringify(this.connectedUser));
       }
     );

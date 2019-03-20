@@ -71,10 +71,11 @@ export class AccountComponent implements OnInit {
       account: account,
       user_type: this.userForm.controls.userType.value
     };
+
     this.userService.createUserWS(newUser).subscribe(
       (res) => {
         if (res.success) {
-          this.notifications.success('Utilisateur créer avec succès', '', NOTIF_PARAMS);
+          this.notifications.success('Utilisateur créé avec succès', '', NOTIF_PARAMS);
         } else {
           this.notifications.error('Impossible de créer l\'utilisateur, l\'email est peut être déjà utilisé', '', NOTIF_PARAMS);
         }

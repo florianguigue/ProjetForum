@@ -44,54 +44,47 @@ html {
 }
 .close {
   float: left;
+  box-shadow: none;
+  border: none;
 }
 .close button {
   background: none;
   border: none;
   color: #009FDF;
+  box-shadow: none;
   cursor: pointer;
 }
 button {
   cursor: pointer;
 }
-.student-info-page .left {
-  text-align: center;
+button:focus {
+  box-shadow: none;
 }
-.student-info-page .left .jumbotron {
-  background-color: transparent;
+.edit-user-form {
+  padding: 40px;
 }
-.student-info-page .left .jumbotron .picture {
-  object-fit: cover;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  min-height: 0;
-  min-width: 0;
+.edit-user-form label {
+  color: #009FDF;
 }
-.student-info-page .left .jumbotron h2 {
-  font-family: "EurostileT-Bold", sans-serif;
-  font-size: 40px;
+.edit-user-form .save {
+  margin-top: 20px;
+  margin-left: auto;
+  text-align: right;
 }
-.student-info-page .left .jumbotron .button {
-  display: flex;
-}
-.student-info-page .left .jumbotron .button button {
-  width: 100%;
+.edit-user-form .save button {
   border: none;
-  cursor: pointer;
-}
-.student-info-page .left .jumbotron .button button.add {
   background-color: #009FDF;
 }
-.student-info-page .left .jumbotron .button button.remove {
-  background-color: #E87722;
-}
-.student-info-page .left .jumbotron .button button i {
+.edit-user-form .save button i {
   margin-right: 10px;
 }
-.student-info-page .right {
-  background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
-  background-size: cover;
-  height: 100vh;
+.edit-user-form .sendPassword {
+  text-align: center;
 }
-/*# sourceMappingURL=student-info.css.map */
+.edit-user-form .sendPassword button {
+  margin-right: auto;
+  margin-left: auto;
+  background-color: green;
+  border: none;
+}
+/*# sourceMappingURL=edit-user.css.map */
