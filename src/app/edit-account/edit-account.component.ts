@@ -17,7 +17,7 @@ const NOTIF_PARAMS = {
   clickToClose: true
 };
 
-const URL = 'http://localhost:3000/';
+const URL = 'http://localhost:3000/upload';
 
 @Component({
   selector: 'app-applicant-form',
@@ -51,6 +51,14 @@ export class EditAccountComponent implements OnInit {
       prenom: [this.user.getAccount.prenom, Validators.required],
       description: [this.user.getAccount.description]
     });
+  }
+
+  upload() {
+    this.uploader.queue.forEach(
+      (file) => {
+        file.upload();
+      }
+    );
   }
 
   get userF() {
