@@ -6,6 +6,8 @@ import {User} from '../model/user';
 import {CookieService} from 'ngx-cookie-service';
 import {UserService} from '../services/user.service';
 import {NotificationsService} from 'angular2-notifications';
+import {FileUploader} from 'ng2-file-upload';
+
 
 const NOTIF_PARAMS = {
   timeOut: 6000,
@@ -13,6 +15,8 @@ const NOTIF_PARAMS = {
   pauseOnHover: true,
   clickToClose: true
 };
+
+const URL = 'http://localhost:3000/';
 
 @Component({
   selector: 'app-applicant-form',
@@ -22,6 +26,8 @@ const NOTIF_PARAMS = {
 export class ApplicantFormComponent implements OnInit {
 
   userForm: FormGroup;
+
+  public uploader: FileUploader = new FileUploader({url: URL});
 
   public user: User;
 
