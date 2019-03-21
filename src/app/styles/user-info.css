@@ -96,17 +96,19 @@ button:focus {
   margin-right: 10px;
 }
 .student-info-page .right {
+  padding: 0;
   background: url(../../assets/images/background-settings.jpeg) no-repeat center bottom fixed;
   background-size: cover;
   height: 100vh;
 }
-@media (max-width: 991.98px) {
-  .student-info-page .right {
-    display: none;
-  }
-}
 :host ::ng-deep .ng2-pdf-viewer-container {
   max-height: 100vh !important;
   max-width: 100% !important;
+}
+:host ::ng-deep .ng2-pdf-viewer-container .page {
+  width: 100% !important;
+}
+:host ::ng-deep .ng2-pdf-viewer-container .pdfViewer {
+  overflow-y: hidden !important;
 }
 /*# sourceMappingURL=user-info.css.map */

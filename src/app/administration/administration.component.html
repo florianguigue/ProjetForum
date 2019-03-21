@@ -6,7 +6,10 @@
           <h2>Liste des utilisateurs</h2>
           <form [formGroup]="searchForm" class="search-form">
             <div class="search col-lg-6">
-              <div class="row"><input type="search" class="form-control" placeholder="Rechercher"/></div>
+              <div class="row">
+                <input id="searchInput" (keyup)="search()" type="search" class="form-control"
+                       placeholder="Rechercher par nom"/>
+              </div>
             </div>
             <div class="add col-lg-6">
               <button class="btn btn-primary" mat-raised-button (click)="openDialog()">
@@ -16,10 +19,10 @@
               </button>
             </div>
           </form>
-          <table class="table-striped">
+          <table id="table" class="table-striped">
             <thead>
             <th>Nom</th>
-            <th>Type d'utilisteur</th>
+            <th>Type d'utilisateur</th>
             <th>Email</th>
             <th>Actions</th>
             </thead>

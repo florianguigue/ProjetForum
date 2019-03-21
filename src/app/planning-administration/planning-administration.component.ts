@@ -15,7 +15,7 @@ export class PlanningAdministrationComponent implements OnInit {
 
   public planning = [];
   public companies = [];
-  public maxMeetings = 0;
+  public hours = [];
 
   constructor(
     private planningService: PlanningService,
@@ -39,23 +39,26 @@ export class PlanningAdministrationComponent implements OnInit {
             meeting.start_date, meeting.end_date, meeting.description, meeting.room);
           this.planning.push(newMeeting);
         });
+        this.setHours();
       }, (error) => {
 
       });
     });
   }
 
-  /*setHours() {
-    this.
-    Math.max(...this.planning.map(meeting => meeting.start_date), 0);
-    companies.forEach((company) => {
-      const meetingSize = this.getPlanningByC(company._id).length;
-      this.maxMeetings = meetingSize > this.maxMeetings ? meetingSize : this.maxMeetings;
-    });
-  }*/
+  setHours() {
+    const min = Math.min(...this.planning.map(meeting => new Date(meeting.start_date).getTime()));
+    const max = Math.max(...this.planning.map(meeting => new Date(meeting.start_date).getTime()), 0);
+    const interval = Math.abs(new Date(this.planning[0].start_date).getTime() / 60000 -
+      new Date(this.planning[0].end_date).getTime() / 60000);
 
-  getHours() {
-
+    const range = (new Date(max).getTime() - new Date(min).getTime()) / interval / 60000;
+    let i = 0;
+    while (i < range) {
+      const date = new Date(min);
+      this.hours.push(this.convertMinsToHrsMins((date.getHours() * 60) + (date.getMinutes() + i * interval)));
+      i++;
+    }
   }
 
   getPlanningByC(companyId) {
@@ -64,4 +67,11 @@ export class PlanningAdministrationComponent implements OnInit {
     });
   }
 
+  convertMinsToHrsMins(mins) {
+    const h = Math.floor(mins / 60);
+    const m = mins % 60;
+    const h1 = h < 10 ? '0' + h : h;
+    const m1 = m < 10 ? '0' + m : m;
+    return `${h1}h${m1}`;
+  }
 }

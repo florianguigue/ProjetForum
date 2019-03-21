@@ -13,12 +13,14 @@
                 <div class="info col-md-8">
                   <div class="basic col-md-9">
                     <p class="name">{{user.displayName}}</p>
-                    <p class="description">Lorem ipsum dolor sit amet no regnotis de alor mor paras...</p>
+                    <p class="description">{{user.getAccount.description|slice:0:61}}</p>
                   </div>
                   <button mat-raised-button (click)="openDialog(user)" class="btn more col-md-3">Voir plus</button>
                   <div [ngSwitch]="connectedUser.wishlist[0][user.id]">
-                    <button *ngSwitchCase="undefined" (click)="addToWishlist(user)" class="btn add col-md-1"><i class="fas fa-user-plus"></i></button>
-                    <button *ngSwitchDefault (click)="remove(user)" class="btn add col-md-1"><i class="fas fa-user-minus"></i></button>
+                    <button *ngSwitchCase="undefined" (click)="addToWishlist(user)" class="btn add col-md-1"><i
+                      class="fas fa-user-plus"></i></button>
+                    <button *ngSwitchDefault (click)="remove(user)" class="btn add col-md-1"><i
+                      class="fas fa-user-minus"></i></button>
                   </div>
                 </div>
               </div>
