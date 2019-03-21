@@ -14,7 +14,8 @@
           <tbody>
           <tr class="meeting" *ngFor="let company of companies">
             <td class="logo-wrapper">
-              <img src="../../assets/images/CGI-Logo.jpg" alt="logo entreprise" class="logo"/>
+              <!-- <img src="../../assets/images/company_default.png" alt="logo entreprise" class="logo"/>-->
+              <p class="initial">{{company.account.name|uppercase}}</p>
             </td>
             <td class="logo-wrapper" *ngFor="let meeting of getPlanningByC(company._id)">
               <img *ngIf="meeting.applicant.account != null" src="../../assets/images/default_male.jpg" alt="portrait"
@@ -22,8 +23,7 @@
               <p class="name" *ngIf="meeting.applicant.account != null">
                 {{meeting.applicant.account.prenom.slice(0, 1)|titlecase}}&nbsp;{{meeting.applicant.account.name|uppercase}}
               </p>
-              <p *ngIf="meeting.applicant.account != null">{{meeting.room}}</p>
-              <p *ngIf="meeting.applicant.account != null">{{meeting.start_date|date: 'HH:mm'}}</p>
+              <!-- <p *ngIf="meeting.applicant.account != null">{{meeting.room}}</p>-->
             </td>
           </tr>
           </tbody>

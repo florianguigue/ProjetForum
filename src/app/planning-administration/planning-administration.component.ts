@@ -37,7 +37,6 @@ export class PlanningAdministrationComponent implements OnInit {
           const companyWS = _.find(users, ['_id', meeting.company]);
           const applicantWS = _.find(users, ['_id', meeting.applicant]);
           const company = new User(companyWS._id, companyWS.email, companyWS.account, companyWS.userType, companyWS.wishList);
-          console.log(applicantWS);
           const applicant = _.isNil(applicantWS) ? new User(null, null, null, AccountType.APPLICANT, null) :
             new User(applicantWS._id, applicantWS.email, applicantWS.account, applicantWS.userType, applicantWS.wishList);
           const newMeeting = new Meeting(meeting._id, company, applicant,
@@ -59,8 +58,9 @@ export class PlanningAdministrationComponent implements OnInit {
       new Date(this.planning[0].end_date).getTime() / 60000);
 
     const range = (new Date(max).getTime() - new Date(min).getTime()) / interval / 60000;
+
     let i = 0;
-    while (i < range) {
+    while (i <= range) {
       const date = new Date(min);
       this.hours.push(this.convertMinsToHrsMins((date.getHours() * 60) + (date.getMinutes() + i * interval)));
       i++;
