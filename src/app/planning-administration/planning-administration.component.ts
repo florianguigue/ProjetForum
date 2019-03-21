@@ -37,7 +37,9 @@ export class PlanningAdministrationComponent implements OnInit {
           const companyWS = _.find(users, ['_id', meeting.company]);
           const applicantWS = _.find(users, ['_id', meeting.applicant]);
           const company = new User(companyWS._id, companyWS.email, companyWS.account, companyWS.userType, companyWS.wishList);
-          const applicant = new User(applicantWS._id, applicantWS.email, applicantWS.account, applicantWS.userType, applicantWS.wishList);
+          console.log(applicantWS);
+          const applicant = _.isNil(applicantWS) ? new User(null, null, null, AccountType.APPLICANT, null) :
+            new User(applicantWS._id, applicantWS.email, applicantWS.account, applicantWS.userType, applicantWS.wishList);
           const newMeeting = new Meeting(meeting._id, company, applicant,
             meeting.start_date, meeting.end_date, meeting.description, meeting.room);
           this.planning.push(newMeeting);
@@ -82,11 +84,10 @@ export class PlanningAdministrationComponent implements OnInit {
   exportPdf() {
     window.scrollTo(0, 0);
     document.getElementsByTagName('html')[0].classList.add('overflow-hidden');
-    setTimeout(function(){
+    setTimeout(function () {
       document.getElementsByTagName('html')[0].classList.remove('overflow-hidden');
     }, 3000);
     const data = document.getElementById('table');
-    console.log(data);
     html2canvas(data).then(canvas => {
       const imgWidth = 208;
       const imgHeight = canvas.height * imgWidth / canvas.width;
@@ -97,6 +98,5 @@ export class PlanningAdministrationComponent implements OnInit {
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
       pdf.save('planning.pdf'); // Generated PDF
     });
-    console.log('over');
   }
 }

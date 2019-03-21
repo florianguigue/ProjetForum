@@ -34,7 +34,6 @@ export class NavigationComponent implements OnInit {
 
     const user = this.userService.createUser(this.cookieService.get('user'));
     this.userList = user.userType.localeCompare(AccountType.COMPANY) === 0 ? 'Candidats' : 'Entreprises';
-    console.log(this.userList);
     this.isAdmin = user.userType.localeCompare(AccountType.ADMIN) === 0;
   }
 
