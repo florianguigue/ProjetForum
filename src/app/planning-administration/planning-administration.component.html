@@ -2,8 +2,9 @@
   <div class="row">
     <div class="planning">
       <div class="banner"><h2>Le planning</h2></div>
-      <div class="col-lg-12">
-        <table class="meetings col-lg-12">
+      <div class="meetings col-lg-12">
+        <button class="btn btn-primary export" (click)="exportPdf()"><i class="fas fa-file-export"></i>exporter le planning</button>
+        <table id="table" class="col-lg-12">
           <thead>
           <th></th>
           <th *ngFor="let hour of hours">{{hour}}</th>
@@ -21,7 +22,6 @@
               <p>{{meeting.room}}</p>
               <p>{{meeting.start_date|date: 'HH:mm'}}</p>
             </td>
-            <td class="logo-wrapper"></td>
           </tr>
           </tbody>
         </table>

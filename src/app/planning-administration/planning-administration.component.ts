@@ -4,6 +4,9 @@ import {Meeting} from '../model/meeting';
 import {UserService} from '../services/user.service';
 import {User} from '../model/user';
 import {AccountType} from '../enums/account-type.enum';
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+import 'jspdf-autotable';
 import * as _ from 'lodash';
 
 @Component({
@@ -40,6 +43,7 @@ export class PlanningAdministrationComponent implements OnInit {
           this.planning.push(newMeeting);
         });
         this.setHours();
+
       }, (error) => {
 
       });
@@ -73,5 +77,26 @@ export class PlanningAdministrationComponent implements OnInit {
     const h1 = h < 10 ? '0' + h : h;
     const m1 = m < 10 ? '0' + m : m;
     return `${h1}h${m1}`;
+  }
+
+  exportPdf() {
+    window.scrollTo(0, 0);
+    document.getElementsByTagName('html')[0].classList.add('overflow-hidden');
+    setTimeout(function(){
+      document.getElementsByTagName('html')[0].classList.remove('overflow-hidden');
+    }, 3000);
+    const data = document.getElementById('table');
+    console.log(data);
+    html2canvas(data).then(canvas => {
+      const imgWidth = 208;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jspdf('p', 'mm', 'a'); // A4 size page of PDF - 1st argument : p for portrait l for landscape
+      const position = 10;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('planning.pdf'); // Generated PDF
+    });
+    console.log('over');
   }
 }

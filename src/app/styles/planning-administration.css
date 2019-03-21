@@ -80,15 +80,28 @@ button:focus {
   background-size: cover;
   width: 100%;
 }
+.planning-administration-page .planning .export {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: #009FDF;
+  border: none;
+  z-index: 4;
+}
+.planning-administration-page .planning .export i {
+  margin-right: 10px;
+}
 .planning-administration-page .planning .meetings {
+  margin-top: 200px;
+}
+.planning-administration-page .planning .meetings table {
   overflow-y: scroll;
   border-collapse: separate;
   border-spacing: 0 1em;
   position: relative;
-  margin-top: 200px;
   padding: 25px;
 }
-.planning-administration-page .planning .meetings thead th {
+.planning-administration-page .planning .meetings table thead th {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   padding: 15px;
@@ -100,49 +113,49 @@ button:focus {
   z-index: 10;
   text-align: center;
 }
-.planning-administration-page .planning .meetings thead th:first-child {
+.planning-administration-page .planning .meetings table thead th:first-child {
   border: none;
   background: transparent;
 }
-.planning-administration-page .planning .meetings thead th:nth-child(2) {
+.planning-administration-page .planning .meetings table thead th:nth-child(2) {
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
-.planning-administration-page .planning .meetings thead th:last-child {
+.planning-administration-page .planning .meetings table thead th:last-child {
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
-.planning-administration-page .planning .meetings tbody {
+.planning-administration-page .planning .meetings table tbody {
   overflow-y: scroll;
 }
-.planning-administration-page .planning .meetings tbody tr {
+.planning-administration-page .planning .meetings table tbody tr {
   background: linear-gradient(to right bottom, #fbfbfb, #fff);
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
-.planning-administration-page .planning .meetings tbody tr .logo-wrapper {
+.planning-administration-page .planning .meetings table tbody tr .logo-wrapper {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-right: 0;
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
-.planning-administration-page .planning .meetings tbody tr .portrait-wrapper:last-child {
+.planning-administration-page .planning .meetings table tbody tr .portrait-wrapper:last-child {
   border-right: 1px solid rgba(0, 0, 0, 0.125);
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
-.planning-administration-page .planning .meetings tbody tr .portrait-wrapper {
+.planning-administration-page .planning .meetings table tbody tr .portrait-wrapper {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
-.planning-administration-page .planning .meetings tbody tr .logo-wrapper,
-.planning-administration-page .planning .meetings tbody tr .portrait-wrapper {
+.planning-administration-page .planning .meetings table tbody tr .logo-wrapper,
+.planning-administration-page .planning .meetings table tbody tr .portrait-wrapper {
   padding: 25px;
   text-align: center;
 }
-.planning-administration-page .planning .meetings tbody tr .logo-wrapper .logo,
-.planning-administration-page .planning .meetings tbody tr .portrait-wrapper .logo,
-.planning-administration-page .planning .meetings tbody tr .logo-wrapper .portrait,
-.planning-administration-page .planning .meetings tbody tr .portrait-wrapper .portrait {
+.planning-administration-page .planning .meetings table tbody tr .logo-wrapper .logo,
+.planning-administration-page .planning .meetings table tbody tr .portrait-wrapper .logo,
+.planning-administration-page .planning .meetings table tbody tr .logo-wrapper .portrait,
+.planning-administration-page .planning .meetings table tbody tr .portrait-wrapper .portrait {
   object-fit: cover;
   border-radius: 50%;
   width: 70px;
