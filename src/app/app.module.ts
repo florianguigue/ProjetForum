@@ -55,7 +55,6 @@ import {EditUserComponent} from './edit-user/edit-user.component';
     DragDropModule,
     FileUploadModule,
     HttpClientModule
-
   ],
   providers: [SharedService, UserService, SettingsService, CookieService, AuthService, AuthGuardService],
   bootstrap: [AppComponent],

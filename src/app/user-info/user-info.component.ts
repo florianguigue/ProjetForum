@@ -6,6 +6,7 @@ import {NotificationsService} from 'angular2-notifications';
 import {CookieService} from 'ngx-cookie-service';
 import * as _ from 'lodash';
 import {AccountType} from '../enums/account-type.enum';
+import {SharedService} from '../services/shared.service';
 
 const NOTIF_PARAMS = {
   timeOut: 6000,
@@ -13,6 +14,8 @@ const NOTIF_PARAMS = {
   pauseOnHover: true,
   clickToClose: true
 };
+
+
 
 interface DialogData {
   user: User;
@@ -29,16 +32,28 @@ interface DialogData {
 export class UserInfoComponent implements OnInit {
 
   public connectedUser: User;
+  pdfSrc = 'http://localhost:3000/getFile/';
+
+  offers = [];
+  storage;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private cookieService: CookieService,
     private userService: UserService,
-    private notifications: NotificationsService
+    private notifications: NotificationsService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit() {
     this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
+    if (this.data.user.getAccount.CV !== undefined) {
+      this.pdfSrc = this.pdfSrc + this.data.user.getAccount.CV;
+    }
+  }
+
+  download(fileName: string) {
+    window.open(this.sharedService.baseUrl + '/getFile/' + fileName);
   }
 
   addToWishList() {

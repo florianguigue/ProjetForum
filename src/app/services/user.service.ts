@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import * as _ from 'lodash';
 import {User} from '../model/user';
+import {FileUploader} from 'ng2-file-upload';
 
 @Injectable({
   providedIn: 'root'
@@ -61,5 +62,18 @@ export class UserService {
   public createUser(u: string): User {
     const user = JSON.parse(u);
     return new User(user._id, user.email, user.account, user.user_type, user.wish_list);
+  }
+
+  public uploadFile(uploader: FileUploader) {
+    uploader.queue.forEach(item => {
+      item.upload();
+    });
+    if (uploader.getNotUploadedItems().length === 0) {
+      uploader.clearQueue();
+    }
+  }
+
+  public getFile(fileName: string): Observable<any> {
+    return this.httpClient.get(this.sharedService.baseUrl + '/getFile/' + fileName);
   }
 }

@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {SharedService} from '../services/shared.service';
 import {AccountType} from '../enums/account-type.enum';
 import {UserService} from '../services/user.service';
+import {User} from '../model/user';
 
 @Component({
   selector: 'app-navigation',
@@ -13,8 +14,11 @@ import {UserService} from '../services/user.service';
 
 export class NavigationComponent implements OnInit {
 
+  picture: string;
+
   public isAdmin = false;
   public userList;
+  public user: User;
 
   constructor(
     public cookieService: CookieService,
@@ -32,9 +36,9 @@ export class NavigationComponent implements OnInit {
       }
     });
 
-    const user = this.userService.createUser(this.cookieService.get('user'));
-    this.userList = user.userType.localeCompare(AccountType.COMPANY) === 0 ? 'Candidats' : 'Entreprises';
-    this.isAdmin = user.userType.localeCompare(AccountType.ADMIN) === 0;
+    this.user = this.userService.createUser(this.cookieService.get('user'));
+    this.userList = this.user.userType.localeCompare(AccountType.COMPANY) === 0 ? 'Candidats' : 'Entreprises';
+    this.isAdmin = this.user.userType.localeCompare(AccountType.ADMIN) === 0;
   }
 
   disconnect() {

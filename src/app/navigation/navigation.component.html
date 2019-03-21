@@ -23,7 +23,7 @@
         <li class="nav-item dropdown" *ngIf="cookieService.check('user')">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
              aria-haspopup="true" aria-expanded="false">
-            <img src="../../assets/images/default_male.jpg">
+            <img src="http://localhost:3000/getFile/{{user.getAccount.picture}}">
           </a>
           <div class="row-mobile">
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"

@@ -30,6 +30,8 @@ export class UserListComponent implements OnInit {
   connectedUser: User;
   public userList;
 
+  public picture: string;
+
   constructor(
     private router: Router,
     private userService: UserService,
@@ -42,6 +44,8 @@ export class UserListComponent implements OnInit {
 
   ngOnInit() {
     this.connectedUser = this.userService.createUser(this.cookieService.get('user'));
+
+    this.picture = 'http://localhost:3000/getFile/' + this.connectedUser.getAccount.picture;
     this.userList = this.connectedUser.userType.localeCompare(AccountType.COMPANY) === 0 ? 'Candidats' : 'Entreprises';
     this.userService.getUserList().subscribe(
       (response) => {

@@ -9,9 +9,21 @@
         <p class="load">{{data.user.getAccount.description}}</p>
         <hr/>
         <div class="button">
-          <button class="col-lg-6" mat-button><i class="fa fa-download"></i>
+          <button *ngIf="data.user.userType === 'Applicant'" class="col-lg-6" mat-button
+                  (click)="download(data.user.getAccount.CV)"><i class="fa fa-download"></i>
             Télécharger le CV
           </button>
+          <div class="row">
+            <h3>Offres d'apprentissages</h3>
+            <div style="flex-direction: row; display: flex;">
+              <div *ngIf="data.user.userType === 'Company'" class="col-lg-6">
+                <button *ngFor="let file of data.user.getAccount.offers" class="btn btn-link" mat-button
+                        (click)="download(file)"><i class="fa fa-download"></i>
+                  {{file}}
+                </button>
+              </div>
+            </div>
+          </div>
           <div class="col-lg-6" [ngSwitch]="connectedUser.wishlist[0][data.user.id]">
             <button class="btn btn-primary add" *ngSwitchCase="undefined" mat-button (click)="addToWishList()"><i
               class="fa fa-plus"></i>Ajouter
@@ -24,11 +36,11 @@
       </div>
     </div>
     <div class="col-lg-6 right">
-      <pdf-viewer [src]="'http://localhost:3000/getFile/test.pdf'"
+      <pdf-viewer [src]="pdfSrc"
                   [original-size]="false"
                   [show-all]="true"
                   style="display: block;"
-
+                  *ngIf="data.user.userType === 'Applicant'"
       ></pdf-viewer>
     </div>
   </div>

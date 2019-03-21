@@ -17,7 +17,7 @@ const NOTIF_PARAMS = {
   clickToClose: true
 };
 
-const URL = 'http://localhost:3000/upload';
+const URL = 'http://localhost:3000/api/upload/';
 
 @Component({
   selector: 'app-applicant-form',
@@ -29,6 +29,7 @@ export class EditAccountComponent implements OnInit {
   userForm: FormGroup;
 
   public uploader: FileUploader = new FileUploader({url: URL});
+  public uploaderPicture: FileUploader = new FileUploader({url: URL});
 
   public user: User;
   public isCompany: boolean;
@@ -38,7 +39,7 @@ export class EditAccountComponent implements OnInit {
     private formBuilder: FormBuilder,
     public userService: UserService,
     public cookieService: CookieService,
-    private notifications: NotificationsService
+    private notifications: NotificationsService,
   ) {
   }
 
@@ -54,11 +55,33 @@ export class EditAccountComponent implements OnInit {
   }
 
   upload() {
-    this.uploader.queue.forEach(
-      (file) => {
-        file.upload();
-      }
-    );
+    const account = this.user.getAccount;
+    if (this.user.userType === AccountType.APPLICANT) {
+      account.CV = this.uploader.queue[0]._file.name;
+    } else {
+      const offersArray = [];
+      this.uploader.queue.forEach(
+        (item) => {
+          offersArray.push(item._file.name);
+        }
+      );
+      account.offers = offersArray;
+    }
+
+    this.userService.updateUser(this.user.id, { 'account': account}).subscribe();
+    this.userService.uploadFile(this.uploader);
+}
+
+  uploadImage() {
+    const account = this.user.getAccount;
+      this.uploaderPicture.queue.forEach(
+        (item) => {
+          account.picture = item._file.name;
+        }
+      );
+
+    this.userService.uploadFile(this.uploaderPicture);
+    this.userService.updateUser(this.user.id, { 'account': account}).subscribe();
   }
 
   get userF() {
